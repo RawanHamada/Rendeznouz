@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('landing-page');
 // });
 
-Route::get('/owner-login.blade' ,[UsersController::class, 'index']);
+Route::get('/owner/owner-login.blade' ,[UsersController::class, 'index']);
 
-Route::get('/owner-login.blade/create' ,[UsersController::class, 'create']);
+Route::get('/owner/owner-login.blade/create' ,[UsersController::class, 'create']);
 
-Route::post('/workspace' ,[UsersController::class, 'store   ']);
+Route::post('/workspace' ,[UsersController::class, 'store']);
 
 // Route::get('/owner-login.blade', function () {
 //     return view('owner-login');

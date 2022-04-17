@@ -12,12 +12,12 @@ class UsersController extends Controller
         //read
         $entries = DB::table('datausers')->first();
         // $users = datauser::get();
-        return view('owner-login');
+        return view('owner/owner-login');
     }
     public function create(){
 
     }
     public function store(){
-        
+
     }
 }

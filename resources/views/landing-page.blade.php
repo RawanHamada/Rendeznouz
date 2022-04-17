@@ -55,7 +55,7 @@ footer {
                     <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Let's Talk</a></li>
-                    <li class="nav-item"><a class="nav-link" href="owner-login.blade">login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="owner/owner-login.blade">login</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
                 </ul>
             </div>
