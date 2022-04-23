@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landing-page');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// Route::get('admin/login','Auth\CustomAuthController@adminLogin')->name(admin.login);
 require __DIR__.'/auth.php';
 require __DIR__.'/dashboard.php';
