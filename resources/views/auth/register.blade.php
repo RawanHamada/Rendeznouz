@@ -1,66 +1,206 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-head />
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader">
+        </div>
+    </div>
+    <!-- preloader area end -->
+    <!-- login area start -->
+    @if ($type == 'customer')
+        <div class="login-area login-s2">
+            <div class="container">
+                <div class="login-box ptb--10">
+                <form action="{{ route('register', ['type' => 'customer']) }}" method="POST">
+                            @csrf
+                        <div class="login-form-head">
+                            <h4>Sign up</h4>
+                            <p>Hello there, Sign up Now and Join with Us To rent your own space 🤞</p>
+                        </div>
+                        <div class="login-form-body" style="padding-top:1px">
+                            <div class="login-form-body text-center">
+                            <a href="{{ route('register', ['type' => 'owner']) }}">
+                                    <button type="button"
+                                        class="btn btn-outline-secondary @if ($type == 'owner') active @endif">
+                                        Owner
+                                    </button>
+                                </a>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                <a href="{{ route('register', ['type' => 'customer']) }}">
+                                    <button type="button"
+                                        class="btn btn-outline-secondary @if ($type == 'customer') active @endif">Customer</button>
+                                </a>
+                            </div>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+                            {{-- Type --}}
+                                <input type="hidden" name="type" value="{{ $type }}">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                            <div class="form-gp">
+                                <label for="exampleInputName1">First Name</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-user"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Last Name</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-user"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Email address</label>
+                                <input type="email" id="exampleInputName1">
+                                <i class="ti-email"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Phone Number</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-mobile"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Company Name</label>
+                                <input type="text" id="exampleInputName1">
+                                <!-- <i class="ti-company"></i> -->
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" id="exampleInputPassword1">
+                                <i class="ti-lock"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputPassword2">Confirm Password</label>
+                                <input type="password" id="exampleInputPassword2">
+                                <i class="ti-lock"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="row mb-4 rmber-area">
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                        <label class="custom-control-label" for="customControlAutosizing">I agree usage policies</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <a href="#">The usage policies</a>
+                                </div>
+                            </div>
+                            <div class="submit-btn-area">
+                                <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            </div>
+                            <div class="form-footer text-center mt-0">
+                                <p class="text-muted">already have an account? 
+                                    <a href="{{ route('login', ['type' => 'customer']) }}">Sign in</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+    @endif
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+    @if ($type == 'owner')
+        <div class="login-area login-s2">
+            <div class="container">
+                <div class="login-box ptb--10">
+                <form action="{{ route('register', ['type' => 'owner']) }}" method="POST">
+                            @csrf
+                        <div class="login-form-head">
+                            <h4>Sign up</h4>
+                            <p>Hello there, Sign up Now and Join with Us To rent your own space 🤞</p>
+                        </div>
+                        <div class="login-form-body" style="padding-top:1px">
+                            <div class="login-form-body text-center">
+                            <a href="{{ route('register', ['type' => 'owner']) }}">
+                                    <button type="button"
+                                        class="btn btn-outline-secondary @if ($type == 'owner') active @endif">
+                                        Owner
+                                    </button>
+                                </a>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                                <a href="{{ route('register', ['type' => 'customer']) }}">
+                                    <button type="button"
+                                        class="btn btn-outline-secondary @if ($type == 'customer') active @endif">Customer</button>
+                                </a>
+                            </div>
+                            
+                            {{-- Type --}}
+                                <input type="hidden" name="type" value="{{ $type }}">
+
+                            <div class="form-gp">
+                                <label for="exampleInputName1">First Name</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-user"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Last Name</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-user"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Email address</label>
+                                <input type="email" id="exampleInputName1">
+                                <i class="ti-email"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Phone Number</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-mobile"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputName1">Company Name</label>
+                                <input type="text" id="exampleInputName1">
+                                <i class="ti-company"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" id="exampleInputPassword1">
+                                <i class="ti-lock"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="form-gp">
+                                <label for="exampleInputPassword2">Confirm Password</label>
+                                <input type="password_confirmation" id="exampleInputPassword2">
+                                <i class="ti-lock"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                            <div class="row mb-4 rmber-area">
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                        <label class="custom-control-label" for="customControlAutosizing">I agree usage policies</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <a href="#">The usage policies</a>
+                                </div>
+                            </div>
+                            <div class="submit-btn-area">
+                                <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            </div>
+                            <div class="form-footer text-center mt-0">
+                                <p class="text-muted">already have an account? 
+                                    <a href="{{ route('login', ['type' => 'owner']) }}">Sign in</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+    @endif
 
-             <!-- phone  -->
-             <div class="mt-4">
-                <x-label for="phone_number" :value="__('phone_number')" />
+    <x-script />
+    </body>
 
-                <x-input id="phone_number" class="block mt-1 w-full" type="phone_number" name="phone_number" :value="old('phone_number')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</html>

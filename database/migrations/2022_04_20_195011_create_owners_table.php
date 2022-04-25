@@ -17,11 +17,12 @@ class CreateOwnersTable extends Migration
             $table->id();
             $table->string('first_name',20);
             $table->string('last_name',20);
-            $table->string('phone_number',13)->unique();
-            $table->string('companyname',20);
             $table->string('email',50)->unique();
-            $table->string('password',100);
-            $table->string('location',20);
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone_number',13)->unique();
+            $table->string('company_name',20);
+            $table->string('password',100); 
+            $table->string('avatar',45); 
             $table->timestamps();
         });
     }

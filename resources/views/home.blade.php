@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
 		<link rel="icon" href="{{ asset('front/img/logo.svg') }}">
-
+		@toastr_css
 
 	</head>
 	<body id="top">
@@ -69,8 +69,8 @@
 							<h1>Desktops Rental Website</h1>
 							<h2>Whatever your business,Whateveryour budget<br> We'll help you to find the right workspace.</h2>
 							<div class="buttons">
-								<a href="{{ route('login') }}" class="btn btn-learn">Login</a>
-								<a href="{{ route('register') }}" class="btn btn-learn">Register</a>
+								<a href="{{ route('login', ['type' => 'customer']) }}" class="btn btn-learn">Login</a>
+								<a href="{{ route('register' , ['type' => 'customer']) }}" class="btn btn-learn">Register</a>
 							</div>
 						</div>
 					</div>
@@ -126,72 +126,72 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="title">
+					<div class="title">
 							<h2>Rental Type</h2>
 						</div>
 						<div id="blog-post" class="owl-carousel">
 							<div>
 								<div class="block">
-									<img src="img/blog/blog-4.jpg" alt="" class="img-responsive">
+									<img src="{{ asset('front/img/blog/blog-4.jpg') }}" alt="" class="img-responsive">
 									<div class="content">
 										<h4><a href="blog.html">Dedicated Desk</a></h4>
 										<p>
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
 										<a href="blog.html" class="btn btn-read">Show more</a>
-										
+
 									</div>
 								</div>
 							</div>
 							<div>
 								<div class="block">
-									<img src="img/blog/blog-2.jpg" alt="" class="img-responsive">
+									<img src="{{ asset('front/img/blog/blog-2.jpg') }}" alt="" class="img-responsive">
 									<div class="content">
 										<h4><a href="blog.html">Standard office</a></h4>
 										<p>
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
 										<a href="blog.html" class="btn btn-read">Show more</a>
-										
+
 									</div>
 								</div>
 							</div>
 							<div>
 								<div class="block">
-									<img src="img/blog/blog-3.jpg" alt="" class="img-responsive">
+									<img src="{{ asset('front/img/blog/blog-3.jpg') }}" alt="" class="img-responsive">
 									<div class="content">
 										<h4><a href="blog.html">Whole building office</a></h4>
 										<p>
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
 										<a href="blog.html" class="btn btn-read">Show more</a>
-										
+
 									</div>
 								</div>
 							</div>
 							<div>
 								<div class="block">
-									<img src="img/blog/blog-1.jpg" alt="" class="img-responsive">
+									<img src="{{ asset('front/img/blog/blog-1.jpg') }}" alt="" class="img-responsive">
 									<div class="content">
 										<h4><a href="blog.html">meeting rooms</a></h4>
 										<p>
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
 										<a href="blog.html" class="btn btn-read">Show more</a>
-										
+
 									</div>
 								</div>
 							</div>
 							<div>
 								<div class="block">
-									<img src="img/blog/blog-5.jpg" alt="" class="img-responsive">
+									<img src="{{ asset('front/img/blog/blog-5.jpg') }}" alt="" class="img-responsive">
 									<div class="content">
 										<h4><a href="blog.html">Training rooms</a></h4>
 										<p>
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
 										<a href="blog.html" class="btn btn-read">Show more</a>
-										
+				
 									</div>
 								</div>
 							</div>
@@ -245,7 +245,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="block">
-							<a href="#"><img src="img/logo.png" alt=""></a>
+							<a href="#"><img src="{{ asset ('img/logo.png') }}" alt=""></a>
 							<p>All rights reserved ©</p>
 						</div>
 					</div>
@@ -255,19 +255,22 @@
 	</div>
 
 		<!-- load Js -->
-		<script src="js/jquery-1.11.3.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="{{ asset('front/js/jquery-1.11.3.min.js') }}"></script>
+		<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI14J_PNWVd-m0gnUBkjmhoQyNyd7nllA"></script>
-		<script src="js/waypoints.min.js"></script>
-		<script src="js/lightbox.js"></script>
-		<script src="js/jquery.counterup.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/html5lightbox.js"></script>
-		<script src="js/jquery.mixitup.js"></script>
-		<script src="js/wow.min.js"></script>
-		<script src="js/jquery.scrollUp.js"></script>
-		<script src="js/jquery.sticky.js"></script>
-		<script src="js/jquery.nav.js"></script>
-		<script src="js/main.js"></script>
+		<script src="{{ asset('front/js/waypoints.min.js') }}"></script>
+		<script src="{{ asset('front/js/lightbox.js') }}"></script>
+		<script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
+		<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+		<script src="{{ asset('front/js/html5lightbox.js') }}"></script>
+		<script src="{{ asset('front/js/jquery.mixitup.js') }}"></script>
+		<script src="{{ asset('front/js/wow.min.js') }}"></script>
+		<script src="{{ asset('front/js/jquery.scrollUp.js') }}"></script>
+		<script src="{{ asset('front/js/jquery.sticky.js') }}"></script>
+		<script src="{{ asset('front/js/jquery.nav.js') }}"></script>
+		<script src="{{ asset('front/js/main.js') }}"></script>
+		@jquery
+		@toastr_js
+		@toastr_render
 	</body>
 </html>
