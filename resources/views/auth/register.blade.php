@@ -95,7 +95,7 @@
                                 <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                             </div>
                             <div class="form-footer text-center mt-0">
-                                <p class="text-muted">already have an account? 
+                                <p class="text-muted">already have an account?
                                     <a href="{{ route('login', ['type' => 'customer']) }}">Sign in</a></p>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                                         class="btn btn-outline-secondary @if ($type == 'customer') active @endif">Customer</button>
                                 </a>
                             </div>
-                            
+
                             {{-- Type --}}
                                 <input type="hidden" name="type" value="{{ $type }}">
 
@@ -171,7 +171,7 @@
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputPassword2">Confirm Password</label>
-                                <input type="password_confirmation" id="exampleInputPassword2">
+                                <input type="password" id="exampleInputPassword2">
                                 <i class="ti-lock"></i>
                                 <div class="text-danger"></div>
                             </div>
@@ -190,7 +190,7 @@
                                 <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                             </div>
                             <div class="form-footer text-center mt-0">
-                                <p class="text-muted">already have an account? 
+                                <p class="text-muted">already have an account?
                                     <a href="{{ route('login', ['type' => 'owner']) }}">Sign in</a></p>
                             </div>
                         </div>

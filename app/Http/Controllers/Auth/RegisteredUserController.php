@@ -34,19 +34,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->type == 'customer') {
-
-            $guardName = 'web';
-
-        } elseif ($request->type == 'owner') {
-
-            $guardName = 'owner';
-
-        }
-        // if ( Auth::guard($guardName)) {
-
             if ($request->type == 'customer') {
-
+                $guardName = 'web';
                 $request->validate([
                     'first_name' => ['required', 'string', 'max:255'],
                     'last_name' => ['required', 'string', 'max:255'],
@@ -64,11 +53,14 @@ class RegisteredUserController extends Controller
                     // 'avatar' => $request->phone_number,
                 ]);
                 event(new Registered($user));
-                 Auth::login($user);
+                Session::put('guardName', $guardName);
+
+                Auth::guard(session('guardName'))->login($user);
+                 return redirect(RouteServiceProvider::CUSTOMER);
 
 
             } elseif ($request->type == 'owner') {
-
+                $guardName = 'owner';
                 $request->validate([
                     'first_name' => ['required', 'string', 'max:255'],
                     'last_name' => ['required', 'string', 'max:255'],
@@ -82,21 +74,20 @@ class RegisteredUserController extends Controller
                     'last_name' => $request->last_name,
                     'email' => $request->email,
                     'phone_number' => $request->phone_number,
-                    'company_name' => $request->phone_number,
+                    'company_name' => $request->company_name,
                     'password' => Hash::make($request->password),
                 ]);
+                Session::put('guardName', $guardName);
+
                 event(new Registered($owner));
-                Auth::login($owner);
+
+                 Auth::guard(session('guardName'))->login($owner);
+                 return redirect(RouteServiceProvider::OWNER);
+
 
             }
-        // }else{
-        //     return redirect()->back();
-        // }
-
-            return redirect()->intended(RouteServiceProvider::HOME);
     }
 
 
-
-    }
+  }
 
