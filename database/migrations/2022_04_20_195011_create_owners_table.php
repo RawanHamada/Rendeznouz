@@ -21,8 +21,8 @@ class CreateOwnersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_number',13)->unique();
             $table->string('company_name',20);
-            $table->string('password',100); 
-            $table->string('avatar',45); 
+            $table->string('password',100);
+            $table->string('avatar',45)->nullable();
             $table->timestamps();
         });
     }

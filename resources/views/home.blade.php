@@ -23,7 +23,7 @@
 
 	</head>
 	<body id="top">
-	
+
 
         <header id="navigation" class="navbar-fixed-top animated-header">
             <div class="container">
@@ -36,7 +36,7 @@
 						<span class="icon-bar"></span>
                     </button>
 					<!-- /responsive nav button -->
-					
+
 					<!-- logo -->
 					<h1 class="navbar-brand">
 						<a href="#body"><img src="front/img/nvnLogo.svg" height="50" width="164" alt=""></a>
@@ -55,7 +55,7 @@
                     </ul>
                 </nav>
 				<!-- /main nav -->
-				
+
             </div>
         </header>
 
@@ -121,7 +121,7 @@
 				</div>
 			</div>
 		</section>
-		
+
 		<section id="blog">
 			<div class="container">
 				<div class="row">
@@ -191,12 +191,12 @@
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
 										<a href="blog.html" class="btn btn-read">Show more</a>
-				
+
 									</div>
 								</div>
 							</div>
-							
-						</div>		
+
+						</div>
 					</div>
 				</div>
 			</div>

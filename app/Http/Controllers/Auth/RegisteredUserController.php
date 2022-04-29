@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Session;
+
 
 class RegisteredUserController extends Controller
 {
@@ -50,7 +52,7 @@ class RegisteredUserController extends Controller
                     'email' => $request->email,
                     'phone_number' => $request->phone_number,
                     'password' => Hash::make($request->password),
-                    // 'avatar' => $request->phone_number,
+                    // 'avatar' => "hhhhhhhhh",
                 ]);
                 event(new Registered($user));
                 Session::put('guardName', $guardName);

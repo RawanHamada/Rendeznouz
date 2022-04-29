@@ -40,43 +40,43 @@
 
                             <div class="form-gp">
                                 <label for="exampleInputName1">First Name</label>
-                                <input type="text" id="exampleInputName1">
+                                <input type="text" name="first_name" id="exampleInputName1">
                                 <i class="ti-user"></i>
                                 <div class="text-danger"></div>
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputName1">Last Name</label>
-                                <input type="text" id="exampleInputName1">
+                                <input type="text" name="last_name" id="exampleInputName1">
                                 <i class="ti-user"></i>
                                 <div class="text-danger"></div>
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputName1">Email address</label>
-                                <input type="email" id="exampleInputName1">
+                                <input type="email" name="email" id="exampleInputName1">
                                 <i class="ti-email"></i>
                                 <div class="text-danger"></div>
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputName1">Phone Number</label>
-                                <input type="text" id="exampleInputName1">
+                                <input type="text" name="phone_number" id="exampleInputName1">
                                 <i class="ti-mobile"></i>
                                 <div class="text-danger"></div>
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputName1">Company Name</label>
-                                <input type="text" id="exampleInputName1">
+                                <input type="text" name="company_name" id="exampleInputName1">
                                 <!-- <i class="ti-company"></i> -->
                                 <div class="text-danger"></div>
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" id="exampleInputPassword1">
+                                <input type="password" name="password" id="exampleInputPassword1">
                                 <i class="ti-lock"></i>
                                 <div class="text-danger"></div>
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputPassword2">Confirm Password</label>
-                                <input type="password" id="exampleInputPassword2">
+                                <input type="password" name="password_confirmation" id="exampleInputPassword2">
                                 <i class="ti-lock"></i>
                                 <div class="text-danger"></div>
                             </div>
@@ -171,7 +171,7 @@
                             </div>
                             <div class="form-gp">
                                 <label for="exampleInputPassword2">Confirm Password</label>
-                                <input type="password" name="password2" id="exampleInputPassword2">
+                                <input type="password" name="password_confirmation" id="exampleInputPassword2">
                                 <i class="ti-lock"></i>
                                 <div class="text-danger"></div>
                             </div>
