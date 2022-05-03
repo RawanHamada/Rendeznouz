@@ -35,6 +35,20 @@ Route::namespace('/Owner')
         Route::get('/owner', [OwnerController::class, 'index'])->name('owner.home');
         // End Owner Controller [Homepage]
 
+        // Start Workspace Routes
+        Route::group([
+            'prefix' => '/workspace',
+            'as' => 'workspace.',
+        ], function() {
+            Route::get('/', [WorkspacesController::class, 'index'])->name('index');
+            Route::get('/create', [WorkspacesController::class, 'create'])->name('create');
+            Route::get('/setting', [WorkspacesController::class, 'setting'])->name('setting');
+            Route::post('/', [WorkspacesController::class, 'store'])->name('store');
+        });
+        // End Workspace Routes
+
+    });
+
         Route::group([
             'prefix' => 'owner',
             'as' => 'owner.',
@@ -42,7 +56,7 @@ Route::namespace('/Owner')
             // Another Routes
         });
 
-    });
+
 
 // Customer Routes [ Namespace => app\Http\Controllers\Customer ]
 Route::namespace('/Customer')

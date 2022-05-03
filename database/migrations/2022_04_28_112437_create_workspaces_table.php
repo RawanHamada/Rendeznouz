@@ -21,6 +21,10 @@ class CreateWorkspacesTable extends Migration
             $table->json('img_url');
             $table->string('price',100);
             $table->string('rating',100);
+            // $table->unsignedFloat('rating');
+            // $table->enum('status', ['Booked', 'Available'])->default('Booked');
+            // $table->enum('type', ['Private Office', 'Public Office', 'Workspace', 'Skype Room'])->default('Workspace');
+            // $table->json('features')->nullable();
 
             $table->foreignId('owner_id')
             ->nullable()

@@ -87,7 +87,12 @@
                             </h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit">
+                                        logout
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

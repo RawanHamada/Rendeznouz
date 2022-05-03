@@ -11,9 +11,11 @@ class OwnerController extends Controller
     public function index()
     {
         $entries = DB::table('users')->get();
+        $workspaces = DB::table('workspaces')->get();
         return view('owner.home',
         [
-            'users' => $entries
+            'users' => $entries,
+            'workspaces' => $workspaces
         ]);
 
     }
