@@ -17,23 +17,22 @@ class CreateWorkspacesTable extends Migration
             $table->id();
             $table->string('name',100);
             $table->text('description',100);
-            $table->string('location',100);
-            $table->json('img_url');
+            // $table->string('location',100);
+            $table->json('gallery');
             $table->string('price',100);
-            $table->string('rating',100);
-            // $table->unsignedFloat('rating');
-            // $table->enum('status', ['Booked', 'Available'])->default('Booked');
-            // $table->enum('type', ['Private Office', 'Public Office', 'Workspace', 'Skype Room'])->default('Workspace');
-            // $table->json('features')->nullable();
+            $table->unsignedFloat('rating');
+            $table->enum('status', ['Booked', 'Available'])->default('Booked');
+            $table->enum('type', ['Private Office', 'Public Office', 'Workspace', 'Skype Room'])->default('Workspace');
+            $table->json('features')->nullable();
 
             $table->foreignId('owner_id')
             ->nullable()
-            ->constrained('owners','id')
+            ->constrained('owners')
             ->nullOnDelete();
 
             $table->foreignId('city_id')
             ->nullable()
-            ->constrained('cities','id')
+            ->constrained('cities')
             ->nullOnDelete();
 
 

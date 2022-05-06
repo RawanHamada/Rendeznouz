@@ -11,20 +11,20 @@ class Workspace extends Model
     protected $fillable = [
         'name',
         'description',
-        'location',
-        'img_url',
+        // 'location',
+        'gallery',
         'price',
         'rating',
-        // 'status',
-        // 'features',
+        'status',
+        'features',
         'owner_id',
-        // 'user_id',
+        'user_id',
         'city_id',
     ];
 
     protected $casts = [
-        'img_url' => 'json',
-        // 'features' => 'json',
+        'gallery' => 'json',
+        'features' => 'json',
     ];
 
     // Relation With Owner

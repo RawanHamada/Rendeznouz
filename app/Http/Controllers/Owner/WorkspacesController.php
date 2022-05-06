@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Owner;
 use App\Models\City;
 use App\Models\Workspace;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +27,8 @@ class WorkspacesController extends Controller
     public function create()
     {
         $cities = City::all();
-        return view('owner.workspace.create', compact('cities'));
+        $features = DB::table('workspaces')->get();
+        return view('owner.workspace.create', compact('cities','features'));
     }
 
     /**
@@ -40,21 +43,21 @@ class WorkspacesController extends Controller
             'name' => ['required'],
             'description' => ['required', 'min:20', 'max:250'],
             'city_id' => ['required'],
-            // 'type' => ['required'],
+            'type' => ['required'],
             'price' => ['required', 'numeric'],
-            'img_url' => ['nullable'],
-            // 'features' => ['required'],
+            'gallery' => ['nullable'],
+            'features' => ['required'],
         ]);
 
         // Uploads Multi-image For Gallary
         $image_path = null;
 
-        if ($request->hasFile('img_url')) {
-            $files = $request->file('img_url'); // Uploaded File Objects
+        if ($request->hasFile('gallery')) {
+            $files = $request->file('gallery'); // Uploaded File Objects
 
             foreach ($files as $file) {
                 $image_path = $file->store('/', [
-                    'disk' => 'img_url',
+                    'disk' => 'gallery',
                 ]);
 
                 $image[] = $image_path;
@@ -68,11 +71,11 @@ class WorkspacesController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'city_id' => $request->city_id,
-            // 'type' => $request->type,
+            'type' => $request->type,
             'price' => $request->price,
-            'img_url' => $image,
-            // 'features' => $request->features,
-            // 'status' => 'Available',
+            'gallery' => $image,
+            'features' => $request->features,
+            'status' => 'Available',
             'owner_id' => Auth::guard(session('guardName'))->user()->id,
         ]);
 
@@ -115,7 +118,7 @@ class WorkspacesController extends Controller
     {
         //
     }
-    public function setting(Request $request, $id)
+    public function setting(Request $request)
     {
         return view('owner.workspace.settings');
     }

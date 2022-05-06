@@ -22,8 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('phone_number',13)->unique;
             $table->string('password',100);
             $table->rememberToken();
-            $table->string('avatar',45)
-            ->nullable();
+            $table->string('avatar')->nullable();
+
+            // Foreign Key
+            // $table->foreignId('city_id')->constrained('cities')->nullOnDelete();
+
             $table->timestamps();
             });
     }

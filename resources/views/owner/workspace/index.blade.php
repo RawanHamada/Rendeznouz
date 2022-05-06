@@ -20,7 +20,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">City</th>
-                                            {{-- <th scope="col">status</th> --}}
+                                            <th scope="col">status</th>
                                             <th scope="col">action</th>
                                         </tr>
                                     </thead>
@@ -31,7 +31,7 @@
                                                 <td>{{ $workspace->name }}</td>
                                                 <td>{{ $workspace->price }}</td>
                                                 <td>{{ $workspace->city->city_name }}</td>
-                                                {{-- <td>
+                                                <td>
                                             @if ($workspace->status == 'Booked')
                                                 <span class="status-p bg-danger">
                                                     booked
@@ -41,10 +41,10 @@
                                                     available
                                                 </span>
                                             @endif
-                                        </td> --}}
+                                        </td>
                                                 <td>
                                                     <ul class="d-flex justify-content-center">
-                                                        {{-- <li class="mr-3">
+                                                        <li class="mr-3">
                                                     <div class="dropdown col-lg-6 col-md-4 col-sm-6">
                                                         <i class="ti-arrow-down text-primary"
                                                             data-toggle="dropdown"></i>
@@ -53,7 +53,7 @@
                                                                         <a class="dropdown-item">{{ $feature }}</a>
                                                             @endforeach
                                                         </div>
-                                                </li> --}}
+                                                </li>
                                                         <li class="mr-3">
                                                             <a href="#" class="text-secondary">
                                                                 <i class="fa fa-edit">

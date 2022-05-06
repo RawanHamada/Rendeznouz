@@ -60,16 +60,16 @@
                             </thead>
                             <tbody>
 
-                                <?php foreach($users as $user) : ?>
+                                 @foreach($users as $user)
                                 <tr>
-                                    <td><?= $user->id ?> </td>
-                                    <td><?= 2 ?></td>
-                                    <td><?= $user->first_name ." ". $user->last_name ?></td>
-                                    <td><?= $user->phone_number ?></td>
-                                    <td><?= $user->email ?></td>
-                                    <td><?= $user->created_at ?></td>
+                                    <td>{{ $user->id }}  </td>
+                                    <td>{{2}} </td>
+                                    <td> {{$user->first_name ." ". $user->last_name}} </td>
+                                    <td> {{ $user->phone_number}} </td>
+                                    <td> {{$user->email}} </td>
+                                    <td> {{$user->created_at}} </td>
                                 </tr>
-                                <?php endforeach ?>
+                                 @endforeach
 
                             </tbody>
                         </table>

@@ -96,7 +96,7 @@
                         <div>
                             <label class="col-form-label">Available features :</label>
 
-                            @foreach (config('features') as $key => $value)
+                            @foreach ($features as $key => $value)
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" name="features[]"
                                         id="{{ $key }}" value="{{ $value }}">
