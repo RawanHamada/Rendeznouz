@@ -60,7 +60,7 @@
                         {{-- Workspace Type --}}
                         <div class="form-group">
                             <label class="col-form-label">type</label>
-                            <select class="form-control" name="type">
+                            <select class="form-control" name="type" >
                                 <option>select workSpace type</option>
                                 <option>Private Office</option>
                                 <option>Public Office</option>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="custom-file">
                                 <input type="file" name="gallery[]" class="custom-file-input" id="inputGroupFile01" multiple>
-                                <label class="custom-file-label" for="inputGroupFile01">Desktop Image</label>
+                                <label class="custom-file-label" for="inputGroupFile01">Workspace Image</label>
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@
                         <div>
                             <label class="col-form-label">Available features :</label>
 
-                            @foreach ($features as $key => $value)
+                            @foreach (config('features') as $key => $value)
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" name="features[]"
                                         id="{{ $key }}" value="{{ $value }}">

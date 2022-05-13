@@ -27,8 +27,8 @@ class WorkspacesController extends Controller
     public function create()
     {
         $cities = City::all();
-        $features = DB::table('workspaces')->get();
-        return view('owner.workspace.create', compact('cities','features'));
+        $workspace = DB::table('workspaces')->get();
+        return view('owner.workspace.create', compact('cities','workspace'));
     }
 
     /**
@@ -73,7 +73,8 @@ class WorkspacesController extends Controller
             'city_id' => $request->city_id,
             'type' => $request->type,
             'price' => $request->price,
-            'gallery' => $image,
+            'rating' => 0,
+            'gallery' => 'img',
             'features' => $request->features,
             'status' => 'Available',
             'owner_id' => Auth::guard(session('guardName'))->user()->id,
@@ -104,7 +105,11 @@ class WorkspacesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $workspace = Workspace::findOrfail($id);
+        // $workspace = DB::table('workspaces')->get();
+        $cities = City::all();
+        return view('owner.workspace.edit',compact('workspace','cities'));
+
     }
 
     /**
@@ -116,11 +121,18 @@ class WorkspacesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
-    public function setting(Request $request)
-    {
-        return view('owner.workspace.settings');
+        $workspace = Workspace::findOrfail($id);
+        $workspace->name =$request->name;
+        $workspace->description =$request->description;
+        $workspace->city_id =$request-> city_id;
+        $workspace->type =$request-> type;
+        $workspace->price =$request-> price  ;
+        $workspace->gallery ='img';
+        $workspace->features =$request-> features;
+        $workspace->save();
+
+        return redirect()->route('workspace.index');
+
     }
 
     /**
@@ -131,7 +143,20 @@ class WorkspacesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Workspace::destroy($id);
+
+        return redirect()->route('workspace.index');
+
+    }
+
+    public function setting(Request $request)
+    {
+        $cities = City::all();
+
+        @Auth::check();
+        $owners = DB::table('owners')->get();
+
+        return view('owner.workspace.settings',compact('owners','cities'));
     }
 
 }

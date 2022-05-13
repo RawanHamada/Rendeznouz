@@ -10,7 +10,7 @@
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">My Desktops</h4>
+                        <h4 class="header-title">My Workspaces</h4>
                         <div class="single-table">
                             <div class="table-responsive">
                                 <table class="table table-hover progress-table text-center">
@@ -32,44 +32,48 @@
                                                 <td>{{ $workspace->price }}</td>
                                                 <td>{{ $workspace->city->city_name }}</td>
                                                 <td>
-                                            @if ($workspace->status == 'Booked')
-                                                <span class="status-p bg-danger">
-                                                    booked
-                                                </span>
-                                            @else
-                                                <span class="status-p bg-success">
-                                                    available
-                                                </span>
-                                            @endif
-                                        </td>
+                                                    @if ($workspace->status == 'Booked')
+                                                        <span class="status-p bg-danger">
+                                                            booked
+                                                        </span>
+                                                    @else
+                                                        <span class="status-p bg-success">
+                                                            available
+                                                        </span>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <ul class="d-flex justify-content-center">
                                                         <li class="mr-3">
-                                                    <div class="dropdown col-lg-6 col-md-4 col-sm-6">
-                                                        <i class="ti-arrow-down text-primary"
-                                                            data-toggle="dropdown"></i>
-                                                        <div class="dropdown-menu">
-                                                            @foreach ($workspace->features as $feature)
+                                                            <div class="dropdown col-lg-6 col-md-4 col-sm-6">
+                                                                <i class="ti-arrow-down text-primary"
+                                                                    data-toggle="dropdown"></i>
+                                                                <div class="dropdown-menu">
+                                                                    @foreach ($workspace->features as $feature)
                                                                         <a class="dropdown-item">{{ $feature }}</a>
-                                                            @endforeach
-                                                        </div>
-                                                </li>
-                                                        <li class="mr-3">
-                                                            <a href="#" class="text-secondary">
+                                                                    @endforeach
+                                                                </div>
+                                                        </li>
+                                                        <li @if (Request::is('owner/workspace/edit')) class="active" @endif
+                                                            class="mr-3">
+                                                            <a href="{{ route('workspace.edit', $workspace->id) }}"
+                                                                class="text-secondary">
                                                                 <i class="fa fa-edit">
                                                                 </i>
                                                             </a>
                                                         </li>
 
                                                         <li class="mr-3">
-                                                            <a href="#" class="text-danger">
-                                                                <i class="ti-trash"></i>
-                                                            </a>
-                                                        </li>
+                                                            <form action="{{ route('workspace.destroy', $workspace->id) }}" method="post">
+                                                                @csrf
+                                                                <input type="hidden" name="_method" value="delete">
+                                                                <button class="ti-trash btn-danger"></button>
+                                                            </form>
+                                                      </li>
                                                     </ul>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

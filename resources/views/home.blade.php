@@ -2,7 +2,7 @@
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Desktops.</title>
+		<title>Workspaces.</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- google fonts -->
 		<!-- Css link -->
@@ -30,7 +30,7 @@
                 <div class="navbar-header">
                     <!-- responsive nav button -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Desktops.</span>
+						<span class="sr-only">Workspaces.</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -66,7 +66,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="block">
-							<h1>Desktops Rental Website</h1>
+							<h1>Workspaces Rental Website</h1>
 							<h2>Whatever your business,Whateveryour budget<br> We'll help you to find the right workspace.</h2>
 							<div class="buttons">
 								<a href="{{ route('login', ['type' => 'customer']) }}" class="btn btn-learn">Login</a>
@@ -86,7 +86,7 @@
 					<div class="col-md-12">
 						<div class="title">
 							<h2>OUR BEST SERVICES</h2>
-							<p>The services we provide in Desktops</p>
+							<p>The services we provide in Workspaces</p>
 						</div>
 					</div>
 				</div>
@@ -208,7 +208,7 @@
 				<div class="row">
 					<div class="title">
 						<h2>About Us</h2>
-						<p>Anything that explanation our project desktops idea <br>Anything Anything</p>
+						<p>Anything that explanation our project Workspaces idea <br>Anything Anything</p>
 					</div>
 					<div class="container">
 						<p>

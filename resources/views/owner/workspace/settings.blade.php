@@ -27,7 +27,8 @@
                                         <h6 class="mb-0">Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        Owner Name
+                                        @foreach ($owners as $owner )
+                                        {{ $owner->first_name ." ". $owner->last_name }}
                                     </div>
                                 </div>
                                 <hr>
@@ -36,7 +37,7 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        owner@gmai.com
+                                        {{$owner->email}}
                                     </div>
                                 </div>
                                 <hr>
@@ -45,18 +46,19 @@
                                         <h6 class="mb-0">Phone</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        (059) 555-555
+                                        {{$owner->phone_number}}
                                     </div>
                                 </div>
                                 <hr>
 
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
+                                        <h6 class="mb-0">City</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        tal-elhawa - Gaza - Palestine
+                                            {{-- {{$cities->city_name}} --}}
                                     </div>
+                                    @endforeach
                                 </div>
 
                             </div>

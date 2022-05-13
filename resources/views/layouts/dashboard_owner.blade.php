@@ -20,7 +20,7 @@
            <!-- footer area start-->
            <footer>
             <div class="footer-area">
-                <p>© Copyright 2022. All right reserved. Template by <a href="#">Desktops Team</a>.</p>
+                <p>© Copyright 2022. All right reserved. Template by <a href="#">Workspaces Team</a>.</p>
             </div>
         </footer>
         <!-- footer area end-->

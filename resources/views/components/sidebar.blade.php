@@ -2,7 +2,7 @@
 <div class="sidebar-menu">
     <div class="sidebar-header">
         <div>
-            <h2 style="color: #ffff">Desktops</h2>
+            <h2 style="color: #ffff">Workspaces</h2>
         </div>
     </div>
     <div class="main-menu">
@@ -17,7 +17,7 @@
                     <li @if (Request::is('owner/workspace')) class="active" @endif>
                         <a href="{{ route('workspace.index') }}" aria-expanded="true">
                             <i class="ti-list-ol"></i>
-                            <span>WorkSpaces</span>
+                            <span>WorkSpaces List</span>
                         </a>
                     </li>
                     <li @if (Request::is('owner/workspace/create')) class="active" @endif>

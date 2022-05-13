@@ -42,6 +42,9 @@ Route::namespace('/Owner')
         ], function() {
             Route::get('/', [WorkspacesController::class, 'index'])->name('index');
             Route::get('/create', [WorkspacesController::class, 'create'])->name('create');
+            Route::get('/{id}/edit', [WorkspacesController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [WorkspacesController::class, 'update'])->name('update');
+            Route::delete('/{id}', [WorkspacesController::class, 'destroy'])->name('destroy');
             Route::get('/setting', [WorkspacesController::class, 'setting'])->name('setting');
             Route::post('/', [WorkspacesController::class, 'store'])->name('store');
         });
