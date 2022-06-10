@@ -16,13 +16,6 @@ class WorkspacesController extends Controller
 {
     public function index()
     {
-        // $img = $request->hasFile('gallery');
-
-        // $image = $request->file('gallery');
-        // $image_path = Storage::url($image);
-        // $image_path = Storage::get('/public/gallery');
-        // $image = Workspace::get('gallery');
-        // $workspace= Workspace::all();
         $onwer_id = Auth::guard( session('guardName') )->user()->id;
         $workspaces = Workspace::where('owner_id', "=" , $onwer_id )->get();
         return view('owner.workspace.index', compact('workspaces'));

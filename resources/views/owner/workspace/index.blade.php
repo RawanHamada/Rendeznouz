@@ -33,7 +33,6 @@
                                                 <td>{{ $workspace->name }}</td>
                                                 {{-- image --}}
                                                 <td>
-                                                   {{-- {{ dd($workspace->gallery)}} --}}
                                                     @for ($i = 0; $i < count($workspace->gallery); $i++)
 
                                                         <img src="{{ asset('gallery') . '/' . $workspace->gallery[$i] }}"
