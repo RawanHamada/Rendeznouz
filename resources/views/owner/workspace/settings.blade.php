@@ -22,6 +22,8 @@
                     <div class="col-md-5">
                         <div class="card mb-3">
                             <div class="card-body">
+                                {{-- @csrf --}}
+                                <input type="hidden" name="_method" value="put">
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Name</h6>
@@ -37,7 +39,7 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        {{$owner->email}}
+                                        {{ auth()->guard(session('guardName'))->user()->email }}
                                     </div>
                                 </div>
                                 <hr>

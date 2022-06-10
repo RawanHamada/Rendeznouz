@@ -8,10 +8,10 @@
     Version: 1.0
 
 ----------------------------------------------
-    
+
     CSS INDEX
     ===================
-  
+
     1. Core Css
     2. Dashboard One
         2.1 Sidebar Menu
@@ -1856,6 +1856,12 @@ p.card-text {
 
 .dropdown-item {
     font-size: 14px;
+}
+.dropdown-menu .log{
+
+    border: none;
+    background: none;
+
 }
 
 /*-------------------- END Dropdown Button ------------------- */

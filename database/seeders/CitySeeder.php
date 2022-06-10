@@ -21,6 +21,7 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
+        DB::table('cities')->truncate();
         $this->city->insert([
             'city_name' => 'Gaza'
         ]);

@@ -9,11 +9,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Storage;
+
 
 class WorkspacesController extends Controller
 {
     public function index()
     {
+        // $img = $request->hasFile('gallery');
+
+        // $image = $request->file('gallery');
+        // $image_path = Storage::url($image);
+        // $image_path = Storage::get('/public/gallery');
+        // $image = Workspace::get('gallery');
+        // $workspace= Workspace::all();
         $onwer_id = Auth::guard( session('guardName') )->user()->id;
         $workspaces = Workspace::where('owner_id', "=" , $onwer_id )->get();
         return view('owner.workspace.index', compact('workspaces'));
@@ -26,9 +35,11 @@ class WorkspacesController extends Controller
      */
     public function create()
     {
+
         $cities = City::all();
+        $features = DB::table('features')->get();
         $workspace = DB::table('workspaces')->get();
-        return view('owner.workspace.create', compact('cities','workspace'));
+        return view('owner.workspace.create', compact('cities','workspace','features'));
     }
 
     /**
@@ -43,38 +54,45 @@ class WorkspacesController extends Controller
             'name' => ['required'],
             'description' => ['required', 'min:20', 'max:250'],
             'city_id' => ['required'],
+            'location' => ['required'],
             'type' => ['required'],
             'price' => ['required', 'numeric'],
             'gallery' => ['nullable'],
             'features' => ['required'],
         ]);
 
-        // Uploads Multi-image For Gallary
-        $image_path = null;
+        // Uploads Multi-image For image folder
+        $img_path = null;
 
         if ($request->hasFile('gallery')) {
             $files = $request->file('gallery'); // Uploaded File Objects
 
             foreach ($files as $file) {
-                $image_path = $file->store('/', [
+                // $filename= date('YmdHi').$file->getClientOriginalName();
+                // $file-> move(public_path('public/Image'), $filename);
+                // $img_path['image']= $filename;
+
+                $img_path = $file->store('/', [
                     'disk' => 'gallery',
                 ]);
 
-                $image[] = $image_path;
+                $image[] = $img_path;
+                // implode(",",$image);
             }
 
         }else{
-            $image_path = null;
+            $img_path = null;
         }
 
         $workspace = Workspace::create([
             'name' => $request->name,
             'description' => $request->description,
+            'location' =>$request->location,
             'city_id' => $request->city_id,
             'type' => $request->type,
             'price' => $request->price,
             'rating' => 0,
-            'gallery' => 'img',
+            'gallery' => $image,
             'features' => $request->features,
             'status' => 'Available',
             'owner_id' => Auth::guard(session('guardName'))->user()->id,
@@ -127,7 +145,7 @@ class WorkspacesController extends Controller
         $workspace->city_id =$request-> city_id;
         $workspace->type =$request-> type;
         $workspace->price =$request-> price  ;
-        $workspace->gallery ='img';
+        $workspace->gallery =$request->gallery;
         $workspace->features =$request-> features;
         $workspace->save();
 
@@ -151,6 +169,9 @@ class WorkspacesController extends Controller
 
     public function setting(Request $request)
     {
+        // $owners =auth()->guard(session('guardName'))->user();
+
+        // $owners = Auth::guard('owner');
         $cities = City::all();
 
         @Auth::check();

@@ -15,6 +15,7 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('admins')->truncate();
         Admin::create([
             'first_name' => 'RawanAdmin',
             'last_name' => 'ha',

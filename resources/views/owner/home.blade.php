@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="seo-fact sbg1">
                         <div class="p-4 d-flex justify-content-between align-items-center">
-                            <div class="seofct-icon"><i class="ti-layers-alt"></i> Num Of Desktop</div>
+                            <div class="seofct-icon"><i class="ti-layers-alt"></i> Num Of workplaces</div>
                             <h2>120</h2>
                         </div>
                     </div>

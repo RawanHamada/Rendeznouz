@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Workspace extends Model
 {
+    // protected $workspace ='workspaces';
     use HasFactory;
     protected $fillable = [
         'name',
         'description',
-        // 'location',
+        'location',
         'gallery',
         'price',
         'rating',
@@ -34,7 +35,7 @@ class Workspace extends Model
 
     // Relation With City
     public function city(){
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class, 'city_id');
     }
 
 }

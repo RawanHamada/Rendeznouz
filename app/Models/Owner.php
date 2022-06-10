@@ -25,4 +25,11 @@ class Owner extends User
         'password',
         'avatar',
     ];
+
+    public function workspace(){
+        return $this->hasMany(Workspace::class);
+    }
+    public function city() {
+        return $this->belongsTo(City::class);
+    }
 }

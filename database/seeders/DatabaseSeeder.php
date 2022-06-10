@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             AdminsTableSeeder::class,
-            CitySeeder::class
+            CitySeeder::class,
+            FeatureSeeder::class
         ]);
+
     }
 }

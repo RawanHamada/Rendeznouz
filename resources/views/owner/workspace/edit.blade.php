@@ -46,7 +46,7 @@
                         </select>
                     </div>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="price" value="{{ $workspace->price }}$/month"
+                        <input type="text" class="form-control" name="price" value="{{ $workspace->price }}"
                             aria-label="Amount (to the nearest dollar)">
                         <div class="input-group-append">
                             <span class="input-group-text">$</span>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="custom-file">
                             <input type="file" name="gallery[]" class="custom-file-input" id="inputGroupFile01">
-                            <label class="custom-file-label" for="inputGroupFile01">Workspace Imge</label>
+                            <label class="custom-file-label" for="inputGroupFile01">Workspace Image</label>
                         </div>
                     </div>
                     <div>

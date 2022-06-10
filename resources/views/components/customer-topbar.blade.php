@@ -1,15 +1,10 @@
-<!-- page title area start -->
 <div class="page-title-area">
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
                 <h4 class="page-title pull-left">Dashboard</h4>
                 <ul class="breadcrumbs pull-left">
-                    <li>
-                        <a href="{{ route('owner.home') }}">
-                            @yield('breadcramp_title')
-                        </a>
-                    </li>
+                    <li><a href="owner-dashboard.html">Exploration</a></li>
 
                 </ul>
             </div>
@@ -19,13 +14,13 @@
                 <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
                     {{ auth()->guard(session('guardName'))->user()->first_name }}
-                    <i class="fa fa-angle-down"></i>
+                     <i class="fa fa-angle-down"></i>
                 </h4>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Settings</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="log" type="submit">
+                        <button type="submit">
                             logout
                         </button>
                     </form>

@@ -19,11 +19,11 @@ class City extends Model
 
     // Relation With User [Customer]
     public function customers() {
-        return $this->hasMany(USer::class);
+        return $this->hasMany(User::class);
     }
 
     // Relation With Worksapce
-    public function workspcaes(){
-        return $this->hasMany(Workspace::class);
+    public function workspaces(){
+        return $this->hasMany(Workspace::class , 'city_id');
     }
 }
