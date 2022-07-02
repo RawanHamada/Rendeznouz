@@ -50,7 +50,7 @@
                         <li><a href="#top">Home</a></li>
                         <li><a href="#features">Service</a></li>
                         <li><a href="#blog">Rental Type</a></li>
-                        <li><a href="#about">Abou Us</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#contact-form">Contact</a></li>
                     </ul>
                 </nav>
@@ -138,7 +138,7 @@
 										<p>
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex itaque repudiandae nihil qui debitis atque necessitatibus aliquam, consequuntur autem!
 										</p>
-										<a href="blog.html" class="btn btn-read">Show more</a>
+										<a href="{{ route('workspace.rent') }}" class="btn btn-read">Show more</a>
 
 									</div>
 								</div>
@@ -254,6 +254,10 @@
 		</footer>
 	</div>
 
+        @jquery
+        @toastr_js
+        @toastr_render
+
 		<!-- load Js -->
 		<script src="{{ asset('front/js/jquery-1.11.3.min.js') }}"></script>
 		<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
@@ -269,8 +273,6 @@
 		<script src="{{ asset('front/js/jquery.sticky.js') }}"></script>
 		<script src="{{ asset('front/js/jquery.nav.js') }}"></script>
 		<script src="{{ asset('front/js/main.js') }}"></script>
-		@jquery
-		@toastr_js
-		@toastr_render
+
 	</body>
 </html>

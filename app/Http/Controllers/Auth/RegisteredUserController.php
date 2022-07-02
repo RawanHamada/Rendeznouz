@@ -44,15 +44,47 @@ class RegisteredUserController extends Controller
                     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                     'phone_number' => ['required', 'string', 'max:255', 'unique:users'],
                     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                    // 'avatar' => ['nullable'],
+
                     // 'avatar' => ['required', 'string', 'max:255'],
                 ]);
+                // Uploads avata For avata folder
+        // $img_path = null;
+
+        // if ($request->hasFile('avatar')) {
+        //     $files = $request->file('user/avatar'); // Uploaded File Objects
+        //     foreach ($files as $file) {
+
+        //         $img_path = $file->store('/', [
+        //             'disk' => 'avatar',
+        //         ]);
+
+        //         $image[] = $img_path;
+        //     }
+        // }else{
+        //     $img_path = null;
+        // }
+
+
+                // start avta
+                // $path ='user/avatar/';
+                // // $fontPath = public_path('/Oliciy.ttf');
+                // $char = strtoupper($request->name[0]);
+                // $newAvatarName =rand(12,34353).time().'_avatar.png';
+                // $dest =$path.$newAvatarName;
+
+                // $createAvatar = makeAvatar($dest,$char);
+                // $picture =$createAvatar == true ? $newAvatarName: '';
+
+                //last
+
                 $user = User::create([
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
                     'email' => $request->email,
                     'phone_number' => $request->phone_number,
                     'password' => Hash::make($request->password),
-                    // 'avatar' => "hhhhhhhhh",
+                    // 'avatar' => $image,
                 ]);
                 event(new Registered($user));
                 Session::put('guardName', $guardName);

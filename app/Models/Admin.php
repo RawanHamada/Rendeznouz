@@ -24,5 +24,5 @@ class Admin extends User
         'avatar',
     ];
 
-    
+
 }

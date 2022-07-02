@@ -24,7 +24,7 @@ class AdminsTableSeeder extends Seeder
             'password'=> Hash::make('password'),
             'super_admin' => 1,
             'status' => 'active',
-            // 'avatar',
+            'avatar' =>  asset('user/avatar/avatar.png'),
         ]);
     }
 }

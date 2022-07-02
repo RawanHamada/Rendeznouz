@@ -58,6 +58,12 @@ return [
             'url' => env('APP_URL').'/gallery',
             'visibility' => 'public',
         ],
+        'avatar' => [
+            'driver' => 'local',
+            'root' => public_path('user/avatar'),
+            'url' => env('APP_URL').'/avatar',
+            'visibility' => 'public',
+        ],
 
     ],
 

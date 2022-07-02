@@ -46,8 +46,8 @@
 
                         {{-- Workspace - City --}}
                         <div class="form-group">
-                            <label class="col-form-label">City</label>
-                            <select class="form-control" name="city_id">
+                            <label  class="col-form-label">City</label>
+                            <select style="height: 3rem" class="form-control" name="city_id">
                                 <option>select city name</option>
                                 @foreach ($cities as $city)
                                     <option value="{{ $city->id }}">
@@ -66,7 +66,7 @@
                         {{-- Workspace Type --}}
                         <div class="form-group">
                             <label class="col-form-label">type</label>
-                            <select class="form-control" name="type" >
+                            <select style="height: 3rem" class="form-control" name="type" >
                                 <option>select workSpace type</option>
                                 <option>Private Office</option>
                                 <option>Public Office</option>

@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     public function index(){
-        $workspaces = DB::table('workspaces')->get();
+        $workspaces = Workspace::get();
+
+        // $workspaces = Workspace::table('workspaces')->get();
         return view('customer.Exploration', compact('workspaces'));
     }
+
 }

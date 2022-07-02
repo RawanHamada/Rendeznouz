@@ -26,6 +26,7 @@ class User extends Authenticatable
         'avatar',
     ];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,5 +44,30 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'avatar' => 'json',
+
     ];
+    public function workspace(){
+        return $this->hasOne(Workspace::class);
+    }
+
+     // Relation With City
+     public function city(){
+        return $this->belongsTo(City::class, 'city_id')->withDefault();
+    }
+
+    // Accessor Methods
+    public function getImageAttribute(){
+        if(!$this->avatar) {
+            return asset('assets/images/author/avatar.png');
+        }
+        return asset('avatar/' . $this->avatar);
+
+    }
+    // Mutators
+    // $user->email = "R@Gmail.com" -> "r@gmail.com
+    public function setEmailAttribute($value) {
+        $this->attributes['email'] = Str::lower($value);
+    }
+
 }

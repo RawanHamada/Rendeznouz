@@ -8,17 +8,19 @@
         <div class="menu-inner">
             <nav>
                 <ul class="metismenu" id="menu">
-                    <li class="active">
-                        <a href="javascript:void(0)" aria-expanded="true"><i
+                    <li @if (Request::is('customer/Exploration')) class="active" @endif>
+                        <a href="{{ route('customer.home') }}" aria-expanded="true"><i
                                 class="ti-dashboard"></i><span>Exploration</span></a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-list-ol"></i><span>My
-                                WorkSpaces</span></a>
+                    <li @if (Request::is('customer/index')) class="active" @endif>
+                        <a href="{{ route('customer.show') }}" aria-expanded="true">
+                            <i class="ti-list-ol"></i>
+                            <span>My WorkSpaces</span></a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i
-                                class="ti-settings"></i><span>settings</span></a>
+                    <li @if (Request::is('customer/setting')) class="active" @endif>
+                        <a href="{{ route('customer.setting', Auth::guard(session('guardName'))->user()->id) }}" aria-expanded="true">
+                            <i class="ti-settings"></i>
+                            <span>settings</span></a>
                     </li>
 
 

@@ -38,6 +38,11 @@ class AuthenticatedSessionController extends Controller
             $guardName = 'owner';
 
         }
+         elseif ($request->type == 'admin') {
+
+            $guardName = 'admin';
+
+        }
 
         if ( Auth::guard($guardName)->attempt([ 'email' => $request->email, 'password' => $request->password])) {
 
@@ -45,7 +50,9 @@ class AuthenticatedSessionController extends Controller
 
             if ($request->type == 'customer') {
 
-                return redirect()->intended(RouteServiceProvider::CUSTOMER);
+                return redirect()->intended(
+                    // $this->$guardName == 'admin' ? RouteServiceProvider::ADMIN :
+                    RouteServiceProvider::CUSTOMER);
 
             } elseif ($request->type == 'owner') {
 

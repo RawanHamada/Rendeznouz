@@ -35,7 +35,7 @@ class Workspace extends Model
 
     // Relation With City
     public function city(){
-        return $this->belongsTo(City::class, 'city_id');
+        return $this->belongsTo(City::class, 'city_id')->withDefault();
     }
 
 }

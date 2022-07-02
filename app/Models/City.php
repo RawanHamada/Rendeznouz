@@ -14,16 +14,16 @@ class City extends Model
 
     // Relation With Owner
     public function owners() {
-        return $this->hasMany(Owner::class);
+        return $this->hasMany(Owner::class, 'city_id')->withDefault();
     }
 
     // Relation With User [Customer]
-    public function customers() {
-        return $this->hasMany(User::class);
+    public function users() {
+        return $this->hasMany(User::class , 'city_id')->withDefault();
     }
 
     // Relation With Worksapce
     public function workspaces(){
-        return $this->hasMany(Workspace::class , 'city_id');
+        return $this->hasMany(Workspace::class , 'city_id')->withDefault();
     }
 }

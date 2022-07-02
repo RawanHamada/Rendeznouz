@@ -26,7 +26,7 @@ class CreateOwnersTable extends Migration
 
             // Foreign Key
             // $table->foreignId('city_id')->constrained('cities')->nullOnDelete();
-
+            
             $table->rememberToken();
             $table->timestamps();
         });

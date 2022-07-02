@@ -14,6 +14,7 @@ class Owner extends User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
     protected $fillable = [
         'id',
         'first_name',
@@ -29,7 +30,16 @@ class Owner extends User
     public function workspace(){
         return $this->hasMany(Workspace::class);
     }
+    // Relation With City
     public function city() {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class, 'city_id')->withDefault();
     }
+        // Accessor Methods
+        public function getImageAttribute(){
+            if(!$this->avatar) {
+                return asset('assets/images/author/avatar.png');
+            }
+            return asset('user/avatar/' . $this->avatar);
+
+        }
 }

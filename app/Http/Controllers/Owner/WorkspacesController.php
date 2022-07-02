@@ -160,17 +160,17 @@ class WorkspacesController extends Controller
 
     }
 
-    public function setting(Request $request)
-    {
-        // $owners =auth()->guard(session('guardName'))->user();
+    // public function setting(Request $request)
+    // {
+    //     // $owners =auth()->guard(session('guardName'))->user();
 
-        // $owners = Auth::guard('owner');
-        $cities = City::all();
+    //     // $owners = Auth::guard('owner');
+    //     $cities = City::all();
 
-        @Auth::check();
-        $owners = DB::table('owners')->get();
+    //     @Auth::check();
+    //     $owners = DB::table('owners')->get();
 
-        return view('owner.workspace.settings',compact('owners','cities'));
-    }
+    //     return view('owner.workspace.settings',compact('owners','cities'));
+    // }
 
 }
