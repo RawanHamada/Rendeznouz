@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Customer\CustomerController;
@@ -11,7 +10,12 @@ use App\Http\Controllers\Owner\WorkspaceRentingController;
 use App\Http\Controllers\Owner\TainentController;
 use App\Http\Controllers\Customer\CustomerWorkspaceController;
 use App\Http\Controllers\Customer\SettingController;
-use App\Http\Controllers\Customer\AdminController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminCompanyController;
+use App\Http\Controllers\Admin\AdminCustomersController;
+use App\Http\Controllers\Admin\AdminSettingsController;
+use App\Http\Controllers\Admin\AdminWorkspacesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,7 +90,10 @@ Route::namespace('/Owner')
 
 // Customer Routes [ Namespace => app\Http\Controllers\Customer ]
 Route::namespace('/Customer')
-->middleware(['auth:web'])
+
+->middleware(['auth:web'
+// ,'type'
+])
 ->group(function() {
 
     // Start Customer Controller [Homepage]
@@ -116,6 +123,8 @@ Route::namespace('/Customer')
 
        // Start Customer Controller [Setting]
          Route::get('/{id}/setting', [SettingController::class, 'edit'])->name('setting');
+         Route::put('/{id}', [SettingController::class, 'update'])->name('update');
+
         // End Customer Controller [Setting] '
     });
 
@@ -137,19 +146,41 @@ Route::group([
 
 
 // Admin Routes [ Namespace => app\Http\Controllers\Admin ]
+Route::middleware('guest','auth:admin')->group(function () {
+
+    Route::get('admin/loginAdmin', [AdminController::class, 'create'])
+                ->name('loginAdmin');
+
+    Route::post('admin/loginAdmin', [AdminController::class, 'store']);
+
+});
+
 Route::namespace('/Admin')
-->middleware(['auth:admin'])
+->prefix('/admin')
+// ->middleware([ 'type'
+// ])
 ->group(function() {
 
     // Start Admin Controller [Homepage]
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.home');
     // End Admin Controller [Homepage]
 
 
     Route::group([
-        'prefix' => 'admin',
-        'as' => 'admin.',
+        'prefix' => '/company',
+        'as' => 'company.',
     ], function() {
+
+        // Start company Admin Controller
+         Route::get('/', [AdminCompanyController::class, 'index'])->name('index');
+         Route::get('/create', [AdminCompanyController::class, 'create'])->name('create');
+         Route::post('/', [AdminCompanyController::class, 'store'])->name('store');
+         Route::get('/{id}/edit', [AdminCompanyController::class, 'edit'])->name('edit');
+         Route::put('/{id}', [AdminCompanyController::class, 'update'])->name('update');
+         Route::delete('/{id}', [AdminCompanyController::class, 'destroy'])->name('delete');
+
+        // End company Admin Controller
+
                 // require __DIR__.'/auth.php';
 
        // Start Admin Controller []
@@ -157,6 +188,51 @@ Route::namespace('/Admin')
         // End Admin Controller ]
 
     });
+    Route::group([
+        'prefix' => '/customer',
+        'as' => 'customer.',
+    ], function() {
+
+        // Start customer Admin Controller
+         Route::get('/', [AdminCustomersController::class, 'index'])->name('index');
+         Route::get('/create', [AdminCustomersController::class, 'create'])->name('create');
+         Route::post('/', [AdminCustomersController::class, 'store'])->name('store');
+         Route::delete('/{id}', [AdminCustomersController::class, 'destroy'])->name('delete');
+         Route::get('/{id}/edit', [AdminCustomersController::class, 'edit'])->name('edit');
+         Route::put('/{id}', [AdminCustomersController::class, 'update'])->name('update');
+
+        // End customer Admin Controller
+
+
+    });
+    Route::group([
+        'prefix' => '/workspace',
+        'as' => 'admin.workspace.',
+    ], function() {
+
+        // Start workspace Admin Controller
+         Route::get('/', [AdminWorkspacesController::class, 'index'])->name('index');
+         Route::get('/{id}', [AdminWorkspacesController::class, 'show'])->name('show');
+         Route::delete('/{id}', [AdminWorkspacesController::class, 'destroy'])->name('delete');
+         Route::get('/{id}/edit', [AdminWorkspacesController::class, 'edit'])->name('edit');
+         Route::put('/{id}', [AdminWorkspacesController::class, 'update'])->name('update');
+
+        // End workspace Admin Controller
+
+
+    });
+
+    // Start Setting Routes [Admin]
+    Route::group([
+        'prefix' => '/settings',
+        'as' => 'admin.setting.'
+    ], function() {
+        Route::get('/', [AdminSettingsController::class, 'index'])->name('index');
+        Route::post('/', [AdminSettingsController::class, 'store'])->name('store');
+        Route::get('/{id}/edit', [AdminSettingsController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [AdminSettingsController::class, 'update'])->name('update');
+    });
+    // End Setting Routes [Admin]
 
 });
 

@@ -8,40 +8,7 @@
     <!-- preloader area end -->
     <!-- page container area start -->
     <div class="page-container">
-        <!-- sidebar menu area start -->
-        <div class="sidebar-menu">
-            <div class="sidebar-header">
-                <div>
-                    <h2 style="color: #ffff">ًWorkspaces</h2>
-                </div>
-            </div>
-            <div class="main-menu">
-                <div class="menu-inner">
-                    <nav>
-                        <ul class="metismenu" id="menu">
-                            <li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Dashboard</span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-list-ol"></i><span>Owners</span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-list-ol"></i><span>Customers</span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-list-ol"></i></i><span>Workspaces</span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-settings"></i><span>Profile</span></a>
-                            </li>
-
-
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- sidebar menu area end -->
+        <x-admin-side-bar />
         <!-- main content area start -->
         <div class="main-content">
 
@@ -59,11 +26,25 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown"> Admin Name <i class="fa fa-angle-down"></i></h4>
+                            <img class="avatar user-thumb"
+                                src="
+                            {{ Auth::guard(session('guardName'))->user()->image }}
+                            "
+                                alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                {{ auth()->guard(session('guardName'))->user()->first_name }}
+                                <i class="fa fa-angle-down"></i>
+                            </h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="{{ route('admin.setting.index') }}">Settings</a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit"
+                                        style="border: none; background-color: transparent; color: #8a8a8a; margin-left: 25px;">
+                                        Log Out
+                                    </button>
+                                </form>
+                                {{-- <a class="dropdown-item" href="#">Log Out</a> --}}
                             </div>
                         </div>
                     </div>
@@ -73,15 +54,15 @@
             @yield('content')
 
             <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2022. All right reserved. Template by <a href="#">Desktops Team</a>.</p>
-            </div>
-        </footer>
-        <!-- footer area end-->
-    </div>
+            <footer>
+                <div class="footer-area">
+                    <p>© Copyright 2022. All right reserved. Template by <a href="#">Workspaces</a>.</p>
+                </div>
+            </footer>
+            <!-- footer area end-->
+        </div>
 
-    <x-script />
+        <x-script />
 
         <!-- start chart js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>

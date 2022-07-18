@@ -32,7 +32,6 @@ class CreateTainantsTable extends Migration
             ->nullOnDelete();
 
             
-
             $table->string('start_date');
             $table->string('end_date');
             $table->string('per_day');

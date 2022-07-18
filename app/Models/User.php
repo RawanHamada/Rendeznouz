@@ -61,13 +61,13 @@ class User extends Authenticatable
         if(!$this->avatar) {
             return asset('assets/images/author/avatar.png');
         }
-        return asset('avatar/' . $this->avatar);
+        return asset('user/avatar' . '/' . $this->avatar);
 
     }
     // Mutators
     // $user->email = "R@Gmail.com" -> "r@gmail.com
-    public function setEmailAttribute($value) {
-        $this->attributes['email'] = Str::lower($value);
-    }
+    // public function setEmailAttribute($value) {
+    //     $this->attributes['email'] = Str::lower($value);
+    // }
 
 }

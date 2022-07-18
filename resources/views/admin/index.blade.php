@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-admin')
-@section('page_title', 'Admin')
-@section('breadcramp_title', 'Admin home')
+@section('page_title', 'Workspace')
+@section('breadcramp_title', 'Workspace')
 @section('content')
             <!--top page start-->
             <div class="col-lg-12">
@@ -30,7 +30,7 @@
                             <div class="seo-fact sbg3">
                                 <div class="p-4 d-flex justify-content-between align-items-center">
                                     <div class="seofct-icon"><i class="ti-bookmark-alt"></i> WorkSpace rented </div>
-                                    <h2>{{ count($workspaces->where('status', 'Available')) }}</h2>
+                                    <h2>{{ count($workspaces->where('status', 'Booked')) }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                                 {{ $tainant->end_date }}
                                             </td>
                                         </tr>
-                                        
+
                                             @endforeach
                                         </tbody>
                                 </table>

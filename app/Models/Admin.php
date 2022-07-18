@@ -24,5 +24,14 @@ class Admin extends User
         'avatar',
     ];
 
+    // // Accessor Methods
+    // public function getImageAttribute(){
+    //     if(!$this->avatar) {
+    //         return asset('assets/images/author/avatar.png');
+    //     }
+    //     return asset('user/avatar/' . $this->avatar);
+
+    // }
+
 
 }

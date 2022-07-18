@@ -8,6 +8,10 @@
         @yield('page_title')
         {{-- {{ config('app.name') }} --}}
     </title>
+    {{-- to ajax --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- end --}}
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">

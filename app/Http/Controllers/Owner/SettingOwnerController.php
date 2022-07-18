@@ -34,16 +34,18 @@ class SettingOwnerController extends Controller
 
     public function update(Request $request, $id)
     {
+        $owner = Owner::findOrFail($id);
 
-        $request->validate([
-            'first_name' => ['required', 'min:3'],
-            'last_name' => ['required', 'min:3'],
-            'phone_number' => ['required', 'numeric', 'min:10'],
-            // 'city' => ['required'],
-            'company_name' => ['required', 'min:3'],
-            'email' => ['required', 'email'],
-            'avatar' => ['nullable'],
-        ]);
+
+        // $request->validate([
+        //     'first_name' => ['required', 'min:3'],
+        //     'last_name' => ['required', 'min:3'],
+        //     'phone_number' => ['required', 'numeric', 'min:10'],
+        //     'city' => ['required'],
+        //     'company_name' => ['required', 'min:3'],
+        //     'email' => ['required', 'email'],
+        //     'avatar' => ['nullable'],
+        // ]);
 
         // Uploads Avatar For user/avatar folder
         $img_path = null;
@@ -61,15 +63,24 @@ class SettingOwnerController extends Controller
         }else{
             $img_path = null;
         }
-        $owner = Auth::guard(session('guardName'))->user($id);
-        $owner->first_name  =$request->fname;
-        $owner->last_name = $request->lname;
-        $owner->phone_number =$request->mobile;
-        // $owner->city_id =$request-> city;
-        $owner->company_name =$request->company_name;
-        $owner->email =$request->email  ;
-        $owner->avatar =$image;
-        $owner->save();
+        $owner->update([
+            'first_name' => $request->fname,
+            'last_name' => $request->lname,
+            'phone_number' => $request->mobile,
+            // 'city_id' => $request->city,
+            'company_name' => $request->company_name,
+            'email' => $request->email,
+            'avatar' => $image,
+        ]);
+
+        // $owner = Auth::guard(session('guardName'))->user($id);
+        // $owner->first_name  =$request->fname;
+        // $owner->last_name = $request->lname;
+        // $owner->phone_number =$request->mobile;
+        // $owner->company_name =$request->company_name;
+        // $owner->email =$request->email  ;
+        // $owner->avatar =$image;
+        // $owner->save();
 
         toastr()->success('Updated Successfully');
 

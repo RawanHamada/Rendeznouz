@@ -30,19 +30,26 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         if ($request->type == 'customer') {
+            // if($request->user_tupe == 1){
+
+            //     $guardName = 'admin';
+
+            // }else{
 
             $guardName = 'web';
+
+            // }
 
         } elseif ($request->type == 'owner') {
 
             $guardName = 'owner';
 
         }
-         elseif ($request->type == 'admin') {
+        //  elseif ($request->type == 'admin') {
 
-            $guardName = 'admin';
+        //     $guardName = 'admin';
 
-        }
+        // }
 
         if ( Auth::guard($guardName)->attempt([ 'email' => $request->email, 'password' => $request->password])) {
 
@@ -50,9 +57,17 @@ class AuthenticatedSessionController extends Controller
 
             if ($request->type == 'customer') {
 
-                return redirect()->intended(
-                    // $this->$guardName == 'admin' ? RouteServiceProvider::ADMIN :
-                    RouteServiceProvider::CUSTOMER);
+                if(Auth::guard('web')->user()->user_type == 1){
+                    return redirect()->intended(RouteServiceProvider::ADMIN);
+                }
+                else{
+                    return redirect()->intended(RouteServiceProvider::CUSTOMER);
+                }
+
+                // }else{
+                //     return redirect()->intended(
+                //         RouteServiceProvider::CUSTOMER);
+                // }
 
             } elseif ($request->type == 'owner') {
 

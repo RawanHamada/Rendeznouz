@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Seeder;
 
@@ -24,7 +25,7 @@ class AdminsTableSeeder extends Seeder
             'password'=> Hash::make('password'),
             'super_admin' => 1,
             'status' => 'active',
-            'avatar' =>  asset('user/avatar/avatar.png'),
+            // 'avatar' =>  asset('user/avatar/avatar.png'),
         ]);
     }
 }

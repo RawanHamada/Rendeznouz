@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\Feature;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Seeder;
 

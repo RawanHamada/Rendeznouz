@@ -24,7 +24,7 @@
                     <a class="dropdown-item" href="{{ route('customer.setting', Auth::guard(session('guardName'))->user()->id) }}">Settings</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit">
+                        <button class="dropdown-item" type="submit">
                             logout
                         </button>
                     </form>

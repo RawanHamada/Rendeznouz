@@ -64,12 +64,12 @@
                                 <i class="ti-mobile"></i>
                                 <div class="text-danger"></div>
                             </div>
-                            <div class="form-gp">
+                            {{-- <div class="form-gp">
                                 <label for="exampleInputName1">Company Name</label>
                                 <input type="text" name="company_name" id="exampleInputName1">
                                 <!-- <i class="ti-company"></i> -->
                                 <div class="text-danger"></div>
-                            </div>
+                            </div> --}}
                             <div class="form-gp">
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" name="password" id="exampleInputPassword1">
@@ -156,7 +156,7 @@
                                 <i class="ti-email"></i>
                                 <div class="text-danger"></div>
                             </div>
-                           
+
                             <div class="form-gp">
                                 <label for="exampleInputName1">Phone Number</label>
                                 <input type="text" name="phone_number" id="exampleInputName1">
