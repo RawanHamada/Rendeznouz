@@ -37,7 +37,6 @@ class ComposerStaticInit548f5934e22522499a88fb4f66948787
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '101b35f72e0ccb1b5ef72aa86bba3ef9' => __DIR__ . '/..' . '/yoeunes/toastr/src/helpers.php',
-        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -523,6 +522,11 @@ class ComposerStaticInit548f5934e22522499a88fb4f66948787
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\AdminCompanyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminCompanyController.php',
+        'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
+        'App\\Http\\Controllers\\Admin\\AdminCustomersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminCustomersController.php',
+        'App\\Http\\Controllers\\Admin\\AdminSettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminSettingsController.php',
+        'App\\Http\\Controllers\\Admin\\AdminWorkspacesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminWorkspacesController.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
         'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
@@ -538,9 +542,12 @@ class ComposerStaticInit548f5934e22522499a88fb4f66948787
         'App\\Http\\Controllers\\Owner\\CalenderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/CalenderController.php',
         'App\\Http\\Controllers\\Owner\\OwnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/OwnerController.php',
         'App\\Http\\Controllers\\Owner\\SettingOwnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/SettingOwnerController.php',
+        'App\\Http\\Controllers\\Owner\\TainentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/TainentController.php',
+        'App\\Http\\Controllers\\Owner\\WorkspaceRentingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/WorkspaceRentingController.php',
         'App\\Http\\Controllers\\Owner\\WorkspacesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/WorkspacesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\CheckType' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckType.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -553,6 +560,7 @@ class ComposerStaticInit548f5934e22522499a88fb4f66948787
         'App\\Models\\City' => __DIR__ . '/../..' . '/app/Models/City.php',
         'App\\Models\\Feature' => __DIR__ . '/../..' . '/app/Models/Feature.php',
         'App\\Models\\Owner' => __DIR__ . '/../..' . '/app/Models/Owner.php',
+        'App\\Models\\Tainant' => __DIR__ . '/../..' . '/app/Models/Tainant.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Workspace' => __DIR__ . '/../..' . '/app/Models/Workspace.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -673,6 +681,7 @@ class ComposerStaticInit548f5934e22522499a88fb4f66948787
         'Database\\Seeders\\CitySeeder' => __DIR__ . '/../..' . '/database/seeders/CitySeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\FeatureSeeder' => __DIR__ . '/../..' . '/database/seeders/FeatureSeeder.php',
+        'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
