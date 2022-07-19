@@ -14,8 +14,8 @@ class AddSizeToWorkspacesTable extends Migration
     public function up()
     {
         Schema::table('workspaces', function (Blueprint $table) {
-            // $table->integer('width')->nullable();
-            // $table->integer('height')->nullable();
+            $table->integer('width')->nullable();
+            $table->integer('height')->nullable();
 
         });
     }
