@@ -15,6 +15,7 @@ class Workspace extends Model
         'location',
         'gallery',
         'price',
+        'size',
         'rating',
         'status',
         'features',

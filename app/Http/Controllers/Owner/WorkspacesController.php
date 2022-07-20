@@ -50,6 +50,8 @@ class WorkspacesController extends Controller
             'location' => ['required'],
             'type' => ['required'],
             'price' => ['required', 'numeric'],
+            'width' => ['required', 'numeric'],
+            'height' => ['required', 'numeric'],
             'gallery' => ['nullable'],
             'features' => ['required'],
         ]);
@@ -84,6 +86,7 @@ class WorkspacesController extends Controller
             'city_id' => $request->city_id,
             'type' => $request->type,
             'price' => $request->price,
+            'size' => $request->width * $request->height,
             'rating' => 0,
             'gallery' => $image,
             'features' => $request->features,
@@ -133,14 +136,60 @@ class WorkspacesController extends Controller
     public function update(Request $request, $id)
     {
         $workspace = Workspace::findOrfail($id);
-        $workspace->name =$request->name;
-        $workspace->description =$request->description;
-        $workspace->city_id =$request-> city_id;
-        $workspace->type =$request-> type;
-        $workspace->price =$request-> price  ;
-        $workspace->gallery =$request->gallery;
-        $workspace->features =$request-> features;
-        $workspace->save();
+
+        $request->validate([
+            'name' => ['required'],
+            'description' => ['required', 'min:20', 'max:250'],
+            'city_id' => ['required'],
+            'type' => ['required'],
+            'address' => ['nullable', 'min:5'],
+            'price' => ['required', 'numeric'],
+            'width' => ['required', 'numeric'],
+            'height' => ['required', 'numeric'],
+            'gallery' => ['nullable'],
+            'features' => ['required'],
+        ]);
+
+        // Uploads Multi-image For Gallary
+        $galleries = Workspace::all();
+
+        // Get Gallery (Array) From Workspace Object
+        foreach ($galleries as $data) {
+            $array_of_image = $data->gallery;
+        }
+
+        $image_path = null;
+
+        if ($request->hasFile('gallery')) {
+            $files = $request->file('gallery'); // Uploaded File Objects
+
+            foreach ($files as $file) {
+                $image_path = $file->store('/', [
+                    'disk' => 'gallery',
+                ]);
+
+                // Push ( Adding New Image In The End Of $array_of_image )
+                $new_image = array_push($array_of_image, $image_path);
+            }
+
+        }else{
+            $image_path = null;
+        }
+
+        $workspace->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'city_id' => $request->city_id,
+            'type' => $request->type,
+            'address' => $request->address,
+            'price' => $request->price,
+            'size' => $request->width * $request->height,
+            'gallery' => $array_of_image,
+            'features' => $request->features,
+        ]);
+
+        toastr()->success('Workspace Successfully Updated !');
+
 
         return redirect()->route('workspace.index');
 

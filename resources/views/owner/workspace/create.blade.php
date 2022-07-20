@@ -85,6 +85,18 @@
                             </div>
                         </div>
 
+                        {{-- Workspace size --}}
+                        <div class="form-group">
+                            <label for="example-text-input" class="col-form-label">WorkSpace Width - in meter</label>
+                            <input class="form-control" type="text" name="width" placeholder="Width here"
+                                id="example-text-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="example-text-input" class="col-form-label">WorkSpace height  - in meter</label>
+                            <input class="form-control" type="text" name="height" placeholder="Height here"
+                                id="example-text-input">
+                        </div>
+
                         <br>
 
                         {{-- Workspace Gallary --}}

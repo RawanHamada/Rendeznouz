@@ -20,6 +20,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Price</th>
+                                            <th scope="col">Size</th>
                                             <th scope="col">City</th>
                                             <th scope="col">status</th>
                                             <th scope="col">action</th>
@@ -43,6 +44,8 @@
                                                 </td>
                                         {{-- Price --}}
                                         <td>{{ $workspace->price }}</td>
+                                        {{-- Size --}}
+                                        <td>{{ $workspace->size }}</td>
                                         {{-- City --}}
                                         <td>{{ $workspace->city->city_name }}</td>
                                         <td>

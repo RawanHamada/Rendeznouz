@@ -24,7 +24,7 @@
                     </li>
 
                     <li @if (Request::is('admin/customer') || Request::is('admin/customer/create')
-                    // || Request::is('admin/customer/{id}/edit')
+                    || Request::is('admin/customer' . '/' .  Auth::guard(session('guardName'))->user()->id . '/' .'edit')
                      ) class="active"  @endif>
                         <a href="{{route('customer.index')}}" aria-expanded="true">
                             <i class="ti-list-ol"></i>

@@ -54,12 +54,27 @@
                         </div>
                     </div>
                     <br>
+
+                    {{-- Workspace size --}}
+                    <div class="form-group">
+                        <label for="example-text-input" class="col-form-label">WorkSpace Width - in meter</label>
+                        <input class="form-control" type="text" name="width" value="{{ $workspace->width }}"
+                            id="example-text-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="example-text-input" class="col-form-label">WorkSpace height  - in meter</label>
+                        <input class="form-control" type="text" name="height" value="{{ $workspace->height }}"
+                            id="example-text-input">
+                    </div>
+
+                    <br>
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Upload</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" name="gallery[]" accept="image/*" class="custom-file-input" id="inputGroupFile01">
+                            <input type="file" name="gallery[]" accept="image/*" class="custom-file-input" id="inputGroupFile01" multiple>
                             <label class="custom-file-label" for="inputGroupFile01">Workspace Image</label>
                         </div>
                     </div>
