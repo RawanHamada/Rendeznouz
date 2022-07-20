@@ -45,7 +45,7 @@
                                         {{-- Price --}}
                                         <td>{{ $workspace->price }}</td>
                                         {{-- Size --}}
-                                        <td>{{ $workspace->size }}</td>
+                                        <td>{{ $workspace->width * $workspace->height }}</td>
                                         {{-- City --}}
                                         <td>{{ $workspace->city->city_name }}</td>
                                         <td>
