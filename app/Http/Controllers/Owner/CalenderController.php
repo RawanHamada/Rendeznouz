@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class CalenderController extends Controller
 {
     public function index(){
-        return view('owner.workspace.calender');
+        return view('livewire.calendar');
+        // return view('owner.workspace.calender');
     }
 }

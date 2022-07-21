@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminCustomersController;
 use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Admin\AdminWorkspacesController;
+use App\Http\Controllers\Customer\CustomerTainantsController;
+use App\Http\Controllers\Payment\PaypalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,9 +77,18 @@ Route::namespace('/Owner')
         });
      // End Setting Routes
 
+     // Start Calender
+     Route::group([
+        'prefix' => '/calendar',
+        'as' => 'calendar.',
+    ], function() {
+        Route::get('/', [CalendarController::class, 'index'])->name('index');
+    });
+    // End Calender
 
 
     });
+
 
         Route::group([
             'prefix' => 'owner',
@@ -109,17 +120,31 @@ Route::namespace('/Customer')
         Route::get('/', [CustomerWorkspaceController::class, 'index'])->name('index');
         Route::get('/{id}', [CustomerWorkspaceController::class, 'show'])->name('show');
         Route::post('/getDays', [CustomerWorkspaceController::class, 'getDays'])->name('getDays');
+
+         // Home Page Workspace Show
+         Route::get('/specific_workspace/{id}', [CustomerWorkspaceController::class, 'specificWorkspace'])->withoutMiddleware(['auth:web'])->name('specificWorkspace');
     });
     // End Customer Workspace
+
+     // Start Customer Tainant
+     Route::group([
+        'prefix' => 'my-tainants',
+        'as' => 'my-tainants.',
+    ], function() {
+        Route::get('/', [CustomerTainantsController::class, 'index'])->name('index');
+
+
+    });
+    // End Customer Tainant
 
     Route::group([
         'prefix' => 'customer',
         'as' => 'customer.',
     ], function() {
        // Start Customer Controller [My Workspace]
-         Route::get('/customer2', [CustomerWorkspaceController::class, 'index'])->name('show');
+        //  Route::get('/customer2', [CustomerWorkspaceController::class, 'index'])->name('show');
         // End Customer Controller [My Workspace]
-        Route::get('/{id}', [CustomerWorkspaceController::class, 'show'])->name('showWorkspace');
+        // Route::get('/{id}', [CustomerWorkspaceController::class, 'show'])->name('showWorkspace');
 
        // Start Customer Controller [Setting]
          Route::get('/{id}/setting', [SettingController::class, 'edit'])->name('setting');
@@ -143,6 +168,10 @@ Route::group([
     Route::delete('/{id}', [TainentController::class, 'destroy'])->name('delete');
 });
 // End Tainents Route
+// Paypal
+Route::get('/payment/{tainent}/create', [PaypalController::class, 'CreatePayment'])->name('CreatePayment');
+Route::get('/payment/callback', [PaypalController::class, 'callback'])->name('CallbackPayment');
+Route::get('/payment/cancel', [PaypalController::class, 'cancel'])->name('CancelPayment');
 
 
 // Admin Routes [ Namespace => app\Http\Controllers\Admin ]

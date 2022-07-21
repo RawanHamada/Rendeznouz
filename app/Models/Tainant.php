@@ -17,6 +17,9 @@ class Tainant extends Model
         'end_date',
         'per_day',
         'total',
+        'remaining_days',
+        'space',
+        'status',
     ];
     /**
      * Relation

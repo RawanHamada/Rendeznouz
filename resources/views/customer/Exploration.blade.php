@@ -19,7 +19,7 @@
                             </p>
                             <p class="card-text">Location : {{ $workspace->location }}</p>
                             <a href="#" class="btn btn-primary">Get More....</a>
-                            <a href="{{ route('customer.showWorkspace', ['id' => $workspace->id]) }}" class="btn btn-primary">
+                            <a href="{{ route('my-workspaces.show', ['id' => $workspace->id]) }}" class="btn btn-primary">
                                 Rent
                             </a>
                         </div>

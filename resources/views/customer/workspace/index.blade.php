@@ -26,7 +26,7 @@
                             <tbody>
                             @foreach( $tainents as $tainent )
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">{{ $tainent->id }}</th>
                                     <td>
                                         {{ $tainent->workspace->name }}
                                     </td>

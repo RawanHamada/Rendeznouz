@@ -11,6 +11,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.10",
+        "paypal/paypal-checkout-sdk": "^1.0",
         "yoeunes/toastr": "^1.2"
     },
     "require-dev": {

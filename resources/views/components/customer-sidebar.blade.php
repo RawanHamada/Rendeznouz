@@ -13,9 +13,14 @@
                                 class="ti-dashboard"></i><span>Exploration</span></a>
                     </li>
                     <li @if (Request::is('customer/index')) class="active" @endif>
-                        <a href="{{ route('customer.show') }}" aria-expanded="true">
+                        <a href="{{ route('my-workspaces.index') }}" aria-expanded="true">
                             <i class="ti-list-ol"></i>
                             <span>My WorkSpaces</span></a>
+                    </li>
+                    <li @if (Request::is('my-tainants')) class="active" @endif>
+                        <a href="{{ route('my-tainants.index') }}" aria-expanded="true">
+                            <i class="ti-list-ol"></i>
+                            <span>My Tainants</span></a>
                     </li>
                     <li @if (Request::is('customer/setting')) class="active" @endif>
                         <a href="{{ route('customer.setting', Auth::guard(session('guardName'))->user()->id) }}" aria-expanded="true">
