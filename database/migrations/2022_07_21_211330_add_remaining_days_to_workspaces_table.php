@@ -14,7 +14,8 @@ class AddRemainingDaysToWorkspacesTable extends Migration
     public function up()
     {
         Schema::table('workspaces', function (Blueprint $table) {
-            //
+            $table->string('remaining_days')->nullable();
+
         });
     }
 

@@ -19,6 +19,7 @@ class Workspace extends Model
         'height',
         'rating',
         'status',
+        'remaining_days',
         'features',
         'owner_id',
         'user_id',

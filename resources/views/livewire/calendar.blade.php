@@ -1,8 +1,8 @@
 @extends('layouts.dashboard_owner')
 
-@section('page_title', 'Owner Settings')
+@section('page_title', 'Owner calendar')
 
-@section('breadcramp_title', 'Owner Settings')
+@section('breadcramp_title', 'Owner calendar')
 
 @section('content')
     <div>
@@ -20,7 +20,7 @@
                 var Draggable = FullCalendar.Draggable;
                 var calendarEl = document.getElementById('calendar');
                 var checkbox = document.getElementById('drop-remove');
-                var data =   @this.events;
+                var data =   @this.event;
                 var calendar = new Calendar(calendarEl, {
                     events: JSON.parse(data),
                     dateClick(info)  {
@@ -71,3 +71,4 @@
         <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.css' rel='stylesheet' />
     @endpush
 @endsection
+

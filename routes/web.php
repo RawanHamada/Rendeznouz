@@ -5,7 +5,7 @@ use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\Owner\WorkspacesController;
 use App\Http\Controllers\Owner\SettingOwnerController;
-use App\Http\Controllers\Owner\CalenderController;
+use App\Http\Controllers\Owner\CalendarController;
 use App\Http\Controllers\Owner\WorkspaceRentingController;
 use App\Http\Controllers\Owner\TainentController;
 use App\Http\Controllers\Customer\CustomerWorkspaceController;
@@ -60,11 +60,21 @@ Route::namespace('/Owner')
             Route::get('/{id}/edit', [WorkspacesController::class, 'edit'])->name('edit');
             Route::put('/{id}', [WorkspacesController::class, 'update'])->name('update');
             Route::delete('/{id}', [WorkspacesController::class, 'destroy'])->name('destroy');
-            Route::get('/calender', [CalenderController::class, 'index'])->name('calender');
+            // Route::get('/calender', [CalenderController::class, 'index'])->name('calender');
             Route::post('/', [WorkspacesController::class, 'store'])->name('store');
             Route::get('/renting', [WorkspaceRentingController::class, 'index'])->name('rent');
         });
          // End Workspace Routes
+
+           // Start Calender
+        Route::group([
+            'prefix' => '/calendar',
+            'as' => 'calendar.',
+        ], function() {
+            Route::get('/', [CalenderController::class, 'index'])->name('index');
+        });
+        // End Calender
+
          // Start Setting Routes
 
         Route::group([

@@ -49,7 +49,7 @@ class TainentController extends Controller
         $diff_in_days = $start->diffInDays($end);
 
         // dd($diff_in_days);
-        if ( !$tainents ) {
+        if ( $workspace->remaining_days == 0 ) {
             Tainant::create([
                 'workspace_id' => $request->workspace_id,
                 'owner_id' => $request->owner_id,
@@ -60,6 +60,11 @@ class TainentController extends Controller
                 'remaining_days' => $diff_in_days,
                 'per_day' => $workspace->price,
             ]);
+
+            $workspace->update([
+                'remaining_days' => $diff_in_days,
+            ]);
+
         }else {
             toastr()->error('The office is currently booked');
 

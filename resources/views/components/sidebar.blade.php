@@ -28,8 +28,8 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i
                                 class="ti-calendar"></i><span>Tenants List</span></a>
                     </li>
-                    <li @if (Request::is('owner/workspace/calender')) class="active" @endif>
-                        <a href="{{ route('workspace.calender') }}" aria-expanded="true"><i
+                    <li @if (Request::is('livewire/calender')) class="active" @endif>
+                        <a href="{{ route('calendar.index') }}" aria-expanded="true"><i
                                 class="ti-calendar"></i><span>calender</span></a>
                     </li>
                     <li @if (Request::is('owner/workspace/setting')) class="active" @endif>

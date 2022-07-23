@@ -33,14 +33,14 @@ class RemainingDaysJob implements ShouldQueue
      */
     public function handle()
     {
-        $tainants = Tainant::all();
+        $workspaces = Workspace::all();
 
-        foreach ($tainants as $tainant){
+        foreach ($workspaces as $workspace){
             $from = Carbon::createFromFormat('Y-m-d H:s:i', now());
-            $to = Carbon::createFromFormat('Y-m-d H:s:i', $tainant->end_day);
+            $to = Carbon::createFromFormat('Y-m-d H:s:i', $workspace->end_day);
             $diff_in_days = $from->diffInDays($to);
 
-            $tainant->update([
+            $workspace->update([
                 'remaining_days' => $diff_in_days,
             ]);
 
