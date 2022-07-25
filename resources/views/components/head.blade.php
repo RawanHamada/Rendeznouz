@@ -32,5 +32,7 @@
 
     <!-- Toastr_CSS -->
     @toastr_css
+    @livewireStyles
+
 
 </head>

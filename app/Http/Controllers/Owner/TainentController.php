@@ -48,8 +48,7 @@ class TainentController extends Controller
         $end = Carbon::createFromFormat('Y-m-d', $request->end_date);
         $diff_in_days = $start->diffInDays($end);
 
-        // dd($diff_in_days);
-        if ( $workspace->remaining_days == 0 ) {
+            if ( $workspace->remaining_days == 0 ) {
             Tainant::create([
                 'workspace_id' => $request->workspace_id,
                 'owner_id' => $request->owner_id,

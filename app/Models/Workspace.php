@@ -17,7 +17,7 @@ class Workspace extends Model
         'price',
         'width',
         'height',
-        'rating',
+        // 'rating',
         'status',
         'remaining_days',
         'features',

@@ -5,6 +5,18 @@
 @section('breadcramp_title', 'My Workspaces')
 
 @section('content')
+
+    <form action="{{ route('my-workspaces.index') }}" method="get" class="form-inline">
+
+        <input type="text" name="name" placeholder="name" class="form-control" value="{{ $name }}">
+        <input type="text" name="start_date" placeholder="Start date" class="form-control" value="{{ $start_date }}">
+        <input type="text" name="end_date" placeholder="End Date" class="form-control" value="{{ $end_date }}">
+        <input type="text" name="price_from" placeholder="Price From" class="form-control" value="{{ $price_from }}">
+        <input type="text" name="price_to" placeholder="Price To" class="form-control" value="{{ $price_to }}">
+        <button type="submit" class="btn btn-outline-dark"> search </button>
+
+    </form>
+
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
@@ -15,7 +27,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Desktop Name</th>
+                                    <th scope="col">Workspace Name</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">Price per day</th>

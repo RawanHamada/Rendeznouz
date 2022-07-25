@@ -16,7 +16,10 @@ use App\Http\Controllers\Admin\AdminCustomersController;
 use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Admin\AdminWorkspacesController;
 use App\Http\Controllers\Customer\CustomerTainantsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Payment\PaypalController;
+use App\Http\Livewire\Calendar;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +32,11 @@ use App\Http\Controllers\Payment\PaypalController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -66,6 +71,7 @@ Route::namespace('/Owner')
         });
          // End Workspace Routes
 
+        //  Livewire::component('calendar', Calendar::class);
            // Start Calender
         Route::group([
             'prefix' => '/calendar',

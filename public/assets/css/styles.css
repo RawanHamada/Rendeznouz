@@ -2842,3 +2842,20 @@ table.dataTable thead td {
 }
 
 /*-------------------- END Offset Sidebar ------------------- */
+
+/* start search of customer */
+.searchInputWrapper {
+    position: relative;
+  }
+
+  .searchInput {
+    width: 15rem;
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: 2rem;
+    border: none;
+    transition: transform 0.1s ease-in-out;
+    background-color: #fcfcfc;
+
+  }
+/* end search of customer */

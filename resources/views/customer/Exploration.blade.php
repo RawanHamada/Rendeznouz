@@ -3,15 +3,43 @@
 @section('breadcramp_title', 'Exporation')
 
 @section('content')
+
+    <form action="{{ route('customer.home') }}" method="get" class="form-inline">
+
+        <input type="text" name="name" placeholder="name" class="form-control" value="{{ $name }}">
+        <select class="form-control" name="workspace" >
+            @foreach (App\Models\Workspace::all() as $workspace)
+
+            <option value="{{ $workspace->id }}" @if($workspace->id == $workspace_id) selected @endif>
+                {{ $workspace->name }}</option>
+            @endforeach
+        </select>
+        <button type="submit" class="btn btn-outline-dark"> search </button>
+
+    </form>
+
     <div class="card-area">
+        <div class="searchInputWrapper text-right" style="margin-left: -500px;">
+            <form action="{{ route('customer.home') }} " method="get">
+                <input class="searchInput" name="search" type="text" value="{{ request()->query('search') }}"
+                    placeholder='focus here to search'>
+                <i class="searchInputIcon fa fa-search"></i>
+            </form>
+        </div>
         <div class="row">
+
+            {{-- {{ $workspaces->links() }} --}}
+
+            {{-- // appends(['search' => request()->query('search')])-> --}}
+
+
             @foreach ($workspaces as $workspace)
                 <div class="col-lg-4 col-md-6 mt-5">
                     <div class="card card-bordered">
                         {{-- {{dd($workspace->gallery)}} --}}
 
-                            <img class="card-img-top img-fluid" src="{{ asset('gallery') . '/' . $workspace->gallery[0] }}"
-                                style="height: 340px; width: 450px;" alt="image">
+                        <img class="card-img-top img-fluid" src="{{ asset('gallery') . '/' . $workspace->gallery[0] }}"
+                            style="height: 340px; width: 450px;" alt="image">
                         {{-- <img class="card-img-top img-fluid" src="assets/images/card/card-img1.jpg" alt="image"> --}}
                         <div class="card-body">
                             <h5 class="title">{{ $workspace->name }}</h5>

@@ -1,5 +1,6 @@
 <x-head />
 
+
 <body>
     <!-- preloader area start -->
     <div id="preloader">
@@ -8,22 +9,25 @@
     <!-- preloader area end -->
     <!-- page container area start -->
     <div class="page-container">
-        <x-sidebar/>
+        <x-sidebar />
         <!-- main content area start -->
         <div class="main-content">
-            <x-top-bar/>
+            <x-top-bar />
             @yield('content')
 
 
         </div>
 
-           <!-- footer area start-->
-           <footer>
+        <!-- footer area start-->
+        <footer>
             <div class="footer-area">
                 <p>© Copyright 2022. All right reserved. Template by <a href="#">Workspaces Team</a>.</p>
             </div>
         </footer>
         <!-- footer area end-->
+
+        {{-- <livewire:calendar /> --}}
+
         <x-script />
 
         <!-- start chart js -->
@@ -41,7 +45,9 @@
         <!-- all pie chart -->
         <script src="{{ asset('assets/js/pie-chart.js') }}"></script>
 
+        @livewireScripts
+        @stack('scripts')
+
 </body>
 
 </html>
-

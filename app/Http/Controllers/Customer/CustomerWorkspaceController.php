@@ -18,8 +18,44 @@ class CustomerWorkspaceController extends Controller
      */
     public function index()
     {
+
+        $request = request();
+
+        $name = $request->query('name');
+        $start_date = $request->query('start_date');
+        $end_date = $request->query('end_date');
+        $price_from = $request->query('price_from');
+        $price_to = $request->query('price_to');
+
+        $perpage = $request->query('perpage');
+
+         if($name) {
+            $workspaces = Workspace::where('name' ,'LIKE' , '%{$name}%');
+        }
+         if($start_date) {
+            $workspaces = Workspace::where('name' ,'>=' , '%{$start_date}%');
+        }
+         if($end_date) {
+            $workspaces = Workspace::where('name' ,'<=' , '%{$end_date}%');
+        }
+         if($price_from) {
+            $workspaces = Workspace::where('name' ,'>=' , '%{$price_from}%');
+        }
+         if($price_to) {
+            $workspaces = Workspace::where('name' ,'<=' , '%{$price_to}%');
+        }
+        // if($workspace_id){
+
+        // }
+        if($perpage == 'all'){
+            $customers = Workspace::all();
+        } else{
+            $customers = Workspace::paginate($perpage);
+        }
+
         $tainents = Tainant::where('user_id', Auth::guard(session('guardName'))->user()->id)->get();
-        return view('customer.workspace.index', compact('tainents'));
+        return view('customer.workspace.index',
+            compact('tainents','customers','name','start_date','end_date','price_from','price_to'));
     }
 
     /**
