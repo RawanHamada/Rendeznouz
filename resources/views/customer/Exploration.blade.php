@@ -1,22 +1,8 @@
 @extends('layouts.dashboard_customers')
 @section('page_title', 'Exporation Workspace')
-@section('breadcramp_title', 'Exporation')
+@section('breadcramp_title', 'Exploration')
 
 @section('content')
-
-    {{-- <form action="{{ route('customer.home') }}" method="get" class="form-inline">
-
-        <input type="text" name="name" placeholder="name" class="form-control" value="{{ $name }}">
-        <select class="form-control" name="workspace" >
-            @foreach (App\Models\Workspace::all() as $workspace)
-
-            <option value="{{ $workspace->id }}" @if($workspace->id == $workspace_id) selected @endif>
-                {{ $workspace->name }}</option>
-            @endforeach
-        </select>
-        <button type="submit" class="btn btn-outline-dark"> search </button>
-
-    </form> --}}
 
     <div class="card-area">
         <div class="searchInputWrapper text-right" style="margin-left: -500px;">
@@ -64,6 +50,6 @@
         <div class="mt-3">
             {{$workspaces->links()}}
         </div>
-        
+
     </div>
 @endsection
