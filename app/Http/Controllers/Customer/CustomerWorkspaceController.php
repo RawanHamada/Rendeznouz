@@ -27,6 +27,10 @@ class CustomerWorkspaceController extends Controller
         $price_from = $request->query('price_from');
         $price_to = $request->query('price_to');
 
+        // $model = User::with('workspace');
+        $workspace = Workspace::all();
+
+
         $perpage = $request->query('perpage');
 
          if($name) {

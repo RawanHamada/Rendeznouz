@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form action="{{ route('customer.home') }}" method="get" class="form-inline">
+    {{-- <form action="{{ route('customer.home') }}" method="get" class="form-inline">
 
         <input type="text" name="name" placeholder="name" class="form-control" value="{{ $name }}">
         <select class="form-control" name="workspace" >
@@ -16,11 +16,11 @@
         </select>
         <button type="submit" class="btn btn-outline-dark"> search </button>
 
-    </form>
+    </form> --}}
 
     <div class="card-area">
         <div class="searchInputWrapper text-right" style="margin-left: -500px;">
-            <form action="{{ route('customer.home') }} " method="get">
+            <form action="{{ route('customer.home') }} " method="get" style="margin-top: 30px">
                 <input class="searchInput" name="search" type="text" value="{{ request()->query('search') }}"
                     placeholder='focus here to search'>
                 <i class="searchInputIcon fa fa-search"></i>
@@ -43,20 +43,27 @@
                         {{-- <img class="card-img-top img-fluid" src="assets/images/card/card-img1.jpg" alt="image"> --}}
                         <div class="card-body">
                             <h5 class="title">{{ $workspace->name }}</h5>
-                            <p class="card-text">{{ $workspace->description }}</p>
+                            <p class="card-text">{{ Str::limit($workspace->description , 30)  }}</p>
                             </p>
                             <p class="card-text">Location : {{ $workspace->location }}</p>
+                            <p class="card-text">Location : {{ $workspace->width }}</p>
                             <a href="#" class="btn btn-primary">Get More....</a>
                             <a href="{{ route('my-workspaces.show', ['id' => $workspace->id]) }}" class="btn btn-primary">
                                 Rent
                             </a>
                         </div>
                     </div>
+
                 </div>
             @endforeach
 
 
 
         </div>
+
+        <div class="mt-3">
+            {{$workspaces->links()}}
+        </div>
+        
     </div>
 @endsection
