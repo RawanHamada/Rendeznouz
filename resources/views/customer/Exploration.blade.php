@@ -29,11 +29,11 @@
                         {{-- <img class="card-img-top img-fluid" src="assets/images/card/card-img1.jpg" alt="image"> --}}
                         <div class="card-body">
                             <h5 class="title">{{ $workspace->name }}</h5>
-                            <p class="card-text">{{ Str::limit($workspace->description , 30)  }}</p>
+                            <p class="card-text">{{ Str::limit($workspace->description, 30) }}</p>
                             </p>
                             <p class="card-text">Location : {{ $workspace->location }}</p>
                             <p class="card-text">Location : {{ $workspace->width }}</p>
-                            <a href="#" class="btn btn-primary">Get More....</a>
+                            
                             <a href="{{ route('my-workspaces.show', ['id' => $workspace->id]) }}" class="btn btn-primary">
                                 Rent
                             </a>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="mt-3">
-            {{$workspaces->links()}}
+            {{ $workspaces->links() }}
         </div>
 
     </div>

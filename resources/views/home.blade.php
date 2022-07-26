@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="{{ asset('front/css/icon.css') }}">
 		<link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
-		<link rel="icon" href="{{ asset('front/img/logo.svg') }}">
+		<link rel="icon" href="{{ asset('front/img/icon1.png') }}">
 
 
 	</head>
@@ -170,7 +170,7 @@
                                     <ul id="mixed-items">
                                         <li class="mix category-1 col-md-4 col-xs-6" data-my-order="1">
                                             <a class="example-image-link" href="#" >
-                                                <img class="img-responsive" src="img/blog-1.jpg" alt="">
+                                                <img class="img-responsive" src="{{ asset('front/img/blog/gaza.jpeg') }}" alt="gaza">
                                                 <div class="overlay">
                                                     <h3>Gaza</h3>
 
@@ -179,7 +179,7 @@
                                         </li>
                                         <li class="mix category-2 col-md-4 col-xs-6" data-my-order="2">
                                             <a class="example-image-link" href="#" >
-                                                <img class="img-responsive" src="img/blog-2.jpg" alt="">
+                                                <img class="img-responsive" src="{{ asset('front/img/blog/blog-2.jpg') }}" alt="rafah">
                                                 <div class="overlay">
                                                     <h3>Rafah</h3>
 
@@ -188,7 +188,7 @@
                                         </li>
                                         <li class="mix category-1 col-md-4 col-xs-6" data-my-order="3">
                                             <a class="example-image-link" href="#" >
-                                                <img class="img-responsive" src="img/blog-3.jpg" alt="">
+                                                <img class="img-responsive" src="{{ asset('front/img/blog/khan.jpeg') }}" alt="khanyounis">
                                                 <div class="overlay">
                                                     <h3>KhanYounis</h3>
 
@@ -197,7 +197,7 @@
                                         </li>
                                         <li class="mix category-2 col-md-4 col-xs-6" data-my-order="4">
                                             <a class="example-image-link" href="#" >
-                                                <img class="img-responsive" src="img/blog-4.jpg" alt="">
+                                                <img class="img-responsive" src="img/blog-4.jpg') }}" alt="">
                                                 <div class="overlay">
                                                     <h3>Alzahra</h3>
 
@@ -206,7 +206,7 @@
                                         </li>
                                         <li class="mix category-1 col-md-4 col-xs-6" data-my-order="5">
                                             <a class="example-image-link" href="#" >
-                                                <img class="img-responsive" src="img/blog-5.jpg" alt="">
+                                                <img class="img-responsive" src="{{ asset('img/blog-5.jpg') }}" alt="">
                                                 <div class="overlay">
                                                     <h3>NorthGaza</h3>
 
@@ -215,7 +215,7 @@
                                         </li>
                                         <li class="mix category-2 col-md-4 col-xs-6" data-my-order="6">
                                             <a class="example-image-link" href="#" >
-                                                <img class="img-responsive" src="img/blog-2.jpg" alt="">
+                                                <img class="img-responsive" src="{{ asset('img/blog-2.jpg') }}" alt="">
                                                 <div class="overlay">
                                                     <h3>Gaza</h3>
 
@@ -256,9 +256,9 @@
                         </div>
                         <div class="col-md-6">
                             <p>
-                                From the graduation research report, Show what the idea is, and explain it here 👇<br> Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.
-                                From the graduation research report, Show what the idea is, and explain it here 👇<br> Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.
-                                From the graduation research report, Show what the idea is, and explain it here 👇<br> Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the standard dummy text.
+                                From the graduation research report, Show what the idea is, and explain it here <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.
+                                From the graduation research report, Show what the idea is, and explain it here <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.
+                                From the graduation research report, Show what the idea is, and explain it here <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the standard dummy text.
 
                             </p>
                         </div>
@@ -271,9 +271,9 @@
                     <div class="row">
                         <div class="title">
                             <h2>CONTACT US</h2>
-                            <p>We are ready to hear what you want to tell us. 😁
+                            <p>We are ready to hear what you want to tell us.
 
-                                <br> From Here 👇</p>
+                                <br> From Here </p>
                         </div>
 
                         <div class="col-md-6" style="margin-left:300px">
@@ -294,7 +294,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
                             <div class="footers-logo">
-                                <img src="front/img/nvnLogo.svg" alt="Logo" style="width:120px;">
+                                <img src="{{ asset('front/img/logo.png') }}" alt="Logo" style="width:120px;">
                             </div>
                             <Br>
                             <div class="footers-info mt-3">
